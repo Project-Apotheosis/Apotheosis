@@ -13,8 +13,6 @@
 #include "AppWin32.h"
 #include "commctrl.h"
 
-namespace Tyro
-{
 
 
 	LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM); //Declaration of friend function which calls the app's window procedure or default window proc
@@ -23,6 +21,7 @@ namespace Tyro
 
 	/**
 	*	Constructor
+	*	@author Serge Radinovich
 	*/
 	AppWin32::AppWin32()
 	{
@@ -33,6 +32,7 @@ namespace Tyro
 
 	/**
 	*	Destructor
+	*	@author Serge Radinovich
 	*/
 	AppWin32::~AppWin32()
 	{
@@ -40,6 +40,7 @@ namespace Tyro
 
 	/**
 	*	Initialize the application window and GameRoot
+	*	@author Serge Radinovich
 	*	@param _hInst	Handle to instance relating to this application
 	*	@param _pIRoot	Pointer to GameRoot through base class which contains screen size information
 	*/
@@ -71,6 +72,7 @@ namespace Tyro
 
 	/**
 	*	Initialize the application window
+	*	@author Serge Radinovich
 	*	@param _hInst			Handle to instance relating to this application
 	*	@param _pInitializer	Screen and D3D data holder for initializing window
 	*/
@@ -113,6 +115,7 @@ namespace Tyro
 
 	/**
 	*	Shut down singleton
+	*	@author Serge Radinovich
 	*/
 	void AppWin32::shutDown()
 	{
@@ -125,6 +128,7 @@ namespace Tyro
 
 	/**
 	*	Friend function which is the application's way of accessing AppWin32 message pump or default pump
+	*	@author Serge Radinovich
 	*	@param _hWnd	Handle to window that this application is using
 	*	@param _msg		Current message processed by message pump
 	*	@param _wParam	Message data
@@ -145,6 +149,7 @@ namespace Tyro
 
 	/**
 	*	Update loop for the application, called from winmain
+	*	@author Serge Radinovich
 	*/
 	void AppWin32::run()
 	{
@@ -162,7 +167,7 @@ namespace Tyro
 			//This is called when no messages are pending
 			else
 			{
-				if (!m_pRoot->executeOneFrame(m_bPaused)) //TODO: Also stop game update if minimized?
+				if (!m_pRoot->executeOneFrame(m_bPaused)) 
 					PostQuitMessage(0);
 			}
 		}
@@ -171,6 +176,7 @@ namespace Tyro
 
 	/**
 	*	Member function controlling message pump, called by CALLBACK friend function defined above
+	*	@author Serge Radinovich
 	*	@param _hWnd	Handle to window that this application is using
 	*	@param _msg		Current message processed by message pump
 	*	@param _wParam	Message data
@@ -306,5 +312,5 @@ namespace Tyro
 		return DefWindowProc(_hWnd, _msg, _wParam, _lParam);
 	}
 
-}
+
 

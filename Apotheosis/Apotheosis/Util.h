@@ -5,7 +5,7 @@
 // 
 // (c) 2005 - 2099 Media Design School 
 // 
-// File Name : TyroUtil.h
+// File Name : Util.h
 // Description :  Util header
 // Author : Serge Radinovich
 // Mail : srad015@hotmail.com
@@ -22,8 +22,9 @@
 #include <vector>
 #include <array>
 #include <string>
-#include "TyroVertex.h"
-
+#include "Vertex.h"
+#include "Box2D.h"
+using namespace std;
 
 
 // Enable extra D3D debugging in debug builds if using the debug DirectX runtime.  
@@ -71,6 +72,11 @@
 	bool equal(float _fA, float _fB, float _fAccuracy = 0.001f);
 
 	std::string resourceDirectory();
+
+	b2Vec2 DXTob2(const D3DXVECTOR2 _rkVecDX);
+	D3DXVECTOR2 b2ToDX(const b2Vec2 _rkVecB2);
+
+
 
 	const D3DXCOLOR WHITE(1.0f, 1.0f, 1.0f, 1.0f);
 	const D3DXCOLOR BLACK(0.0f, 0.0f, 0.0f, 1.0f);

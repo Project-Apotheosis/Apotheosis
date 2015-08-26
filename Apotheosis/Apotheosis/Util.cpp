@@ -12,6 +12,22 @@
 
 #include "Util.h"
 
+
+b2Vec2 DXTob2(const D3DXVECTOR2 _rkVecDX)
+{
+	b2Vec2 _returnVec;
+	_returnVec.x = _rkVecDX.x;
+	_returnVec.y = _rkVecDX.y;
+	return _returnVec;
+}
+D3DXVECTOR2 b2ToDX(const b2Vec2 _rkVecB2)
+{
+	D3DXVECTOR2 _returnVec;
+	_returnVec.x = _rkVecB2.x;
+	_returnVec.y = _rkVecB2.y;
+	return _returnVec;
+}
+
 bool equal(float _fA, float _fB, float _fAccuracy)
 {
 	return fabsf(_fA - _fB) < _fAccuracy;

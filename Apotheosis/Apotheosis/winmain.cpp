@@ -10,9 +10,9 @@
 // Author : Serge Radinovich
 // Mail : srad015@hotmail.com
 
-//#ifdef _DEBUG
-//#include <vld.h>
-//#endif
+#ifdef _DEBUG
+#include <vld.h>
+#endif
 
 #include "AppWin32.h"
 #include "GameRoot.h"
@@ -20,8 +20,7 @@
 
 int WINAPI _tWinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, PTSTR _lpCmdLine, int _iCmdShow)
 {
-
-	Tyro::AppWin32* _app = Tyro::AppWin32::getInstancePtr();
+	AppWin32* _app = AppWin32::getInstancePtr();
 
 	GameRoot _root;
 

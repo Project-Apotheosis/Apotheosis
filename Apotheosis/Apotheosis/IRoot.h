@@ -16,8 +16,11 @@
 #define __IRoot_H__
 
 #include <windows.h>
-#include "TyroTimer.h"
-#include "TyroDX10Renderer.h"
+#include "Timer.h"
+#include "DX10Renderer.h"
+#include "PhysicsSystem.h"
+#include "Util.h"
+#include "InputHandler.h"
 
 
 	class AppWin32;
@@ -45,8 +48,9 @@
 
 		string m_sFrameStats;
 		Timer m_timer;
-		DX10Renderer*		m_pRenderer;
-		//PhysicsSystem*		m_pPhysicsSys;
+		DX10Renderer*		m_pRenderer{};
+		PhysicsSystem*		m_pPhysicsSystem{};
+		InputHandler*		m_pInputHandler{};
 		D3DInitializer		m_initializer; //Gives Win32App and Renderer details about screen.
 
 

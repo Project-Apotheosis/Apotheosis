@@ -18,15 +18,14 @@
 #include <Windows.h>
 #include <stdlib.h>//srand()
 #include <time.h>  //srand()
-#include "TyroIRoot.h"
+#include "IRoot.h"
 
-#include "TyroUtil.h"
+#include "Util.h"
 
 #include <tchar.h>
 #include <time.h>
 
-namespace Tyro
-{
+
 	//Win32 Application
 	//Every Project will get a AppWin32* and run it with a derived IRoot
 	class AppWin32
@@ -85,5 +84,5 @@ namespace Tyro
 
 		bool    initWindow(HINSTANCE hInstance, const D3DInitializer*);
 	};
-}
+
 #endif //__APP_WIN32__
