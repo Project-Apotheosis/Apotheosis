@@ -21,7 +21,9 @@ InputHandler* InputHandler::s_pInstance = nullptr;
 */
 InputHandler::InputHandler()
 {
-	m_pGamePad = new XInputManager(0);
+	for (UINT i = 0; i < m_pGamePads.size(); ++i)
+		m_pGamePads[i] = new XInputManager(i);
+
 	m_pDinput = new D3DInputManager();
 }
 
@@ -48,7 +50,10 @@ InputHandler::~InputHandler()
 void InputHandler::shutDown()
 {
 	SAFE_DELETE(m_pDinput);
-	SAFE_DELETE(m_pGamePad);
+
+	for (UINT i = 0; i < m_pGamePads.size(); ++i)
+		SAFE_DELETE(m_pGamePads[i]);
+
 	delete s_pInstance;
 }
 
@@ -58,7 +63,7 @@ void InputHandler::shutDown()
 *	@param	_fDeltaTime				Delta Time
 *	@return	bool					True if input detected
 */
-bool InputHandler::handleShoot(float _fDeltaTime)
+bool InputHandler::handleShoot(UINT _iPlayerID, float _fDeltaTime)
 {
 	static float s_fLastHandle = 0.0f;
 	static float s_fTimeElapsed = 0.0f;
@@ -76,18 +81,19 @@ bool InputHandler::handleShoot(float _fDeltaTime)
 	return false;
 }
 
-bool InputHandler::handleJump(float _fDeltaTime)
+bool InputHandler::handleJump(UINT _iPlayerID, float _fDeltaTime)
 {
-	static float s_fLastHandle = 0.0f;
-	static float s_fTimeElapsed = 0.0f;
+	m_inputTimers[_iPlayerID].first += _fDeltaTime;
+	//static float s_fLastHandle = 0.0f;
+	//static float s_fTimeElapsed = 0.0f;
 
-	s_fTimeElapsed += _fDeltaTime;
+	//s_fTimeElapsed += _fDeltaTime;
 
-	if (s_fTimeElapsed - s_fLastHandle > 1.2f)
+	if (m_inputTimers[_iPlayerID].first - m_inputTimers[_iPlayerID].second > 1.2f)
 	{
-		if (m_pGamePad->getButtonPressed(E_GAMEPAD_BUTTON::GB_A) || m_pDinput->isKeyDown(DIK_SPACE))
+		if (m_pGamePads[_iPlayerID]->getButtonPressed(E_GAMEPAD_BUTTON::GB_A) /*|| m_pDinput->isKeyDown(DIK_SPACE)*/)
 		{
-			s_fLastHandle = s_fTimeElapsed;
+			m_inputTimers[_iPlayerID].second = m_inputTimers[_iPlayerID].first;
 			return true;
 		}
 	}
@@ -100,37 +106,39 @@ bool InputHandler::handleJump(float _fDeltaTime)
 *	@param	_fDeltaTime				Delta Time
 *	@return	bool					True if input detected
 */
-bool InputHandler::handleObjectTranslation(D3DXVECTOR2& _rTranslate, float _fDeltaTime)
+bool InputHandler::handleObjectTranslation(UINT _iPlayerID, D3DXVECTOR2& _rTranslate, float _fDeltaTime)
 {
-	static float s_fLastHandle = 0.0f;
-	static float s_fTimeElapsed = 0.0f;
+	//static float s_fLastHandle = 0.0f;
+	//static float s_fTimeElapsed = 0.0f;
 
-	s_fTimeElapsed += _fDeltaTime;
+	//s_fTimeElapsed += _fDeltaTime;
+	m_inputTimers[_iPlayerID].first += _fDeltaTime;
 
-	if (s_fTimeElapsed - s_fLastHandle > 0.1f)
+
+	if (m_inputTimers[_iPlayerID].first - m_inputTimers[_iPlayerID].second > 0.1f)
 	{
 
 		bool _bMoveHandled = false;
 
 		//Vertical
-		if (m_pGamePad->leftStick_Y() > 0.1f || m_pDinput->isKeyDown(DIK_W))
+		if (m_pGamePads[_iPlayerID]->leftStick_Y() > 0.1f /*|| m_pDinput->isKeyDown(DIK_W)*/)
 		{
 			_rTranslate += D3DXVECTOR2(0, 1);
 			_bMoveHandled = true;
 		}
-		else if (m_pGamePad->leftStick_Y() < -0.1f || m_pDinput->isKeyDown(DIK_S))
+		else if (m_pGamePads[_iPlayerID]->leftStick_Y() < -0.1f /*|| m_pDinput->isKeyDown(DIK_S)*/)
 		{
 			_rTranslate += D3DXVECTOR2(0, -1);
 			_bMoveHandled = true;
 		}
 
 		//Horizontal
-		if (m_pGamePad->leftStick_X() < -0.1f || m_pDinput->isKeyDown(DIK_A))
+		if (m_pGamePads[_iPlayerID]->leftStick_X() < -0.1f /*|| m_pDinput->isKeyDown(DIK_A)*/)
 		{
 			_rTranslate += D3DXVECTOR2(-1, 0);
 			_bMoveHandled = true;
 		}
-		else if (m_pGamePad->leftStick_X() > 0.1f || m_pDinput->isKeyDown(DIK_D))
+		else if (m_pGamePads[_iPlayerID]->leftStick_X() > 0.1f /*|| m_pDinput->isKeyDown(DIK_D)*/)
 		{
 			_rTranslate += D3DXVECTOR2(1, 0);
 			_bMoveHandled = true;
@@ -138,6 +146,7 @@ bool InputHandler::handleObjectTranslation(D3DXVECTOR2& _rTranslate, float _fDel
 
 		if (_bMoveHandled)
 		{
+			m_inputTimers[_iPlayerID].second = m_inputTimers[_iPlayerID].first;
 			D3DXVec2Normalize(&_rTranslate, &_rTranslate);
 			return true;
 		}
@@ -151,9 +160,12 @@ bool InputHandler::handleObjectTranslation(D3DXVECTOR2& _rTranslate, float _fDel
 */
 void InputHandler::update()
 {
-	m_pGamePad->refreshState();
-	m_pGamePad->poll();
-
+	for (UINT i = 0; i < m_pGamePads.size(); ++i)
+	{
+		m_pGamePads[i]->refreshState();
+		m_pGamePads[i]->poll();
+	}
+		
 	m_pDinput->pollKeyboard();
 	m_pDinput->pollMouse();
 }

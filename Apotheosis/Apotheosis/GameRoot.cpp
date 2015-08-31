@@ -73,7 +73,9 @@ void GameRoot::createScene() //AB: Object Ordering
 	for (UINT i = 0; i < 4; ++i)
 		m_platforms[i].init(b2Vec2(-25.0f + 10.0f*i, -2.0f), 3.0f, 1.0f);
 
-	m_player.init(b2Vec2(0.0f, 5.0f), 1.0f, 1.0f);
+	for (UINT i = 0; i < m_players.size(); ++i)
+		m_players[i].init(b2Vec2(-2.0f + 2.0f*i, 5.0f), 1.0f, 1.0f);
+
 	m_pCamera->setPos(&D3DXVECTOR3(0.0f, 0.0f, -100.0f));
 	m_pCamera->lookAt(&D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
@@ -97,7 +99,9 @@ void GameRoot::update(float _fDeltaTime)
 	for (auto& rPlatform : m_platforms)
 		rPlatform.update(_fDeltaTime);
 
-	m_player.update(_fDeltaTime);
+	for (auto& _rPlayer : m_players)
+		_rPlayer.update(_fDeltaTime);
+
 	/*D3DXMATRIX _rotMtx;
 	D3DXMatrixRotationAxis(&_rotMtx, &D3DXVECTOR3(0.0f, 0.0f, 1.0f), D3DX_PI * _fDeltaTime);
 

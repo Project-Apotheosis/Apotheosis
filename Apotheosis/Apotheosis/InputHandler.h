@@ -48,14 +48,16 @@ public: //Interface
 
 private: //Data
 
-	XInputManager* m_pGamePad{}; //Xbox 360 controller
+	array<XInputManager*, 4> m_pGamePads{}; //Xbox 360 controller
+	array<pair<float, float>, 4> m_inputTimers{};
 	D3DInputManager* m_pDinput{};
+
 public: //Interface
 
 
-	bool handleObjectTranslation(D3DXVECTOR2& _rTranslate, float _fDeltaTime);
-	bool handleJump(float _fDeltaTime);
-	bool handleShoot(float _fDeltaTime);
+	bool handleObjectTranslation(UINT _iPlayerID, D3DXVECTOR2& _rTranslate, float _fDeltaTime);
+	bool handleJump(UINT _iPlayerID, float _fDeltaTime);
+	bool handleShoot(UINT _iPlayerID, float _fDeltaTime);
 
 	void update();
 };

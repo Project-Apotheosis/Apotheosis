@@ -31,7 +31,9 @@ private: //Data
 
 	array<Platform, 4> m_platforms;
 
-	Player m_player;
+	//Player m_player;
+	array<Player, 4> m_players;
+
 	pair<E_LIGHT_TYPE, unsigned> m_parallelLightHandle{};
 private: //Internals
 

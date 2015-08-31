@@ -39,7 +39,7 @@ XInputManager::XInputManager()
 {
 }
 
-	// Overloaded constructor
+// Overloaded constructor
 XInputManager::XInputManager(int _iIndex)
 	{
 		// Set gamepad index

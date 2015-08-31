@@ -92,6 +92,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="D3DInputmanager.cpp" />
     <ClCompile Include="DX10Renderer.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="XInputManager.cpp" />
     <ClCompile Include="GameRoot.cpp" />
     <ClCompile Include="InputHandler.cpp" />
