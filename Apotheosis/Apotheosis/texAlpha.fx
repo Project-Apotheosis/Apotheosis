@@ -71,11 +71,15 @@ cbuffer cbPerObject
 	float4x4 gWorld;
 	float4x4 gWVP; 
 	float4x4 gTexMtx;
+	float gAnimRate;
+	int gSpriteCount;
+	float gGameTime;
 };
 
 // Nonnumeric values cannot be added to a cbuffer.
-Texture2D gDiffuseMap;
-Texture2D gSpecMap;
+//Texture2D gDiffuseMap;
+//Texture2D gSpecMap;
+Texture2DArray gTexArray;
 
 SamplerState gTriLinearSam
 {
@@ -125,21 +129,27 @@ float4 PS(VS_OUT pIn) : SV_Target
 	// Get materials from texture maps.
 	//float alpha    = gDiffuseMap.Sample( gTriLinearSam, pIn.texC0 ).a;
 	//float4 diffuse = gDiffuseMap.Sample( gTriLinearSam, pIn.texC1 );
-	float alpha    = gDiffuseMap.Sample( gTriLinearSam, pIn.texC ).a;
-	float4 diffuse = gDiffuseMap.Sample(gTriLinearSam, pIn.texC);
-		//float4 spec    = gSpecMap.Sample( gTriLinearSam, pIn.texC );
-		float4 spec = diffuse;
-	// Map [0,1] --> [0,256]
-	spec.a *= 256.0f;
+	//float alpha    = gDiffuseMap.Sample( gTriLinearSam, pIn.texC ).a;
+	//float4 diffuse = gDiffuseMap.Sample(gTriLinearSam, pIn.texC);
+	//float4 spec    = gSpecMap.Sample( gTriLinearSam, pIn.texC );
+	
 	
 	// Interpolating normal can make it not be of unit length so normalize it.
     float3 normalW = normalize(pIn.normalW);
     
+	int index = (gGameTime * gAnimRate) % gSpriteCount;
+	float4 diffuse = gTexArray.Sample(gTriLinearSam, float3(pIn.texC, index));
+
+	float4 spec = diffuse;
+		// Map [0,1] --> [0,256]
+		spec.a *= 256.0f;
+
+
 	// Compute the lit color for this pixel.
     SurfaceInfo v = {pIn.posW, normalW, diffuse, spec};
 	float3 litColor = ParallelLight(v, gLight, gEyePosW);
     
-    return float4(litColor, alpha);
+    return float4(litColor, 1.0f);
 }
 
 technique10 TexAlphaTech

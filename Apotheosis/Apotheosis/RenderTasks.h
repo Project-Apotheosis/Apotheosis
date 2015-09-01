@@ -67,9 +67,18 @@ struct RenderTaskShaded
 		UINT			   iIndexCount{};
 		UINT			   iStride{};
 
+		//Animation
+		UINT iSpriteCount{};
+		float fAnimRate{};
+
 		//Scalars
 		ID3D10EffectScalarVariable* pFXDeltaTimeVar{};
-		ID3D10EffectScalarVariable* pFXCubeMapEnabledVar{};
+		ID3D10EffectScalarVariable* pFXGameTimeVar{};
+		ID3D10EffectScalarVariable* pFXAnimRateVar{};
+		//ID3D10EffectScalarVariable* pFXLastAnimTimeVar{};
+		ID3D10EffectScalarVariable* pFXSpriteCountVar{};
+		//ID3D10EffectScalarVariable* pFXCubeMapEnabledVar{};
+
 
 		//Matrix vars
 		ID3D10EffectMatrixVariable* pFXWVPVar{};
@@ -81,19 +90,21 @@ struct RenderTaskShaded
 		ID3D10EffectVectorVariable* pFXEyePosWVar{};
 
 		//Resource vars
-		ID3D10EffectShaderResourceVariable* pFXDiffuseMapVar{};
-		ID3D10EffectShaderResourceVariable* pFXSpecMapVar{};
-		ID3D10EffectShaderResourceVariable* pFXCubeMapVar{};
-		ID3D10EffectShaderResourceVariable* pFXNormalMapVar{};
+		ID3D10EffectShaderResourceVariable* pFXTexArrayVar{};
+		//ID3D10EffectShaderResourceVariable* pFXDiffuseMapVar{};
+		//ID3D10EffectShaderResourceVariable* pFXSpecMapVar{};
+		//ID3D10EffectShaderResourceVariable* pFXCubeMapVar{};
+		//ID3D10EffectShaderResourceVariable* pFXNormalMapVar{};
 		//Terrain rendering
-		ID3D10EffectShaderResourceVariable* pFXLayer0Var{};
+		/*ID3D10EffectShaderResourceVariable* pFXLayer0Var{};
 		ID3D10EffectShaderResourceVariable* pFXLayer1Var{};
 		ID3D10EffectShaderResourceVariable* pFXLayer2Var{};
 		ID3D10EffectShaderResourceVariable* pFXLayer3Var{};
 		ID3D10EffectShaderResourceVariable* pFXLayer4Var{};
-		ID3D10EffectShaderResourceVariable* pFXBlendMapVar{};
+		ID3D10EffectShaderResourceVariable* pFXBlendMapVar{};*/
 
 		//Textures
+		ID3D10ShaderResourceView* pTextureArray{};
 		std::array<ID3D10ShaderResourceView*, T_MAX> textures{};
 		D3DXMATRIX				  textureMatrix;
 

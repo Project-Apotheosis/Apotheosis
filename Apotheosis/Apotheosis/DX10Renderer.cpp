@@ -144,6 +144,108 @@
 	}
 
 
+	void DX10Renderer::createTextureArray(const string& _rkTextureFileName, const string& _rkSuffix, const UINT _kiSpriteCount, ID3D10ShaderResourceView** _ppRV)
+	{
+
+		// Has this texture already been created?
+		if (m_textureMap.containsItem(_rkTextureFileName))
+		{
+			*_ppRV = m_textureMap.getItem(_rkTextureFileName); //Grab existing texture
+			return;
+		}
+
+
+		// Load the texture elements individually from file.  These textures
+		// won't be used by the GPU (0 bind flags), they are just used to 
+		// load the image data from file.  We use the STAGING usage so the
+		// CPU can read the resource.
+		unsigned _iArraySize = _kiSpriteCount;
+
+		vector<ID3D10Texture2D*> _sourceTextures(_iArraySize, 0);
+
+		for (unsigned i = 0; i < _iArraySize; ++i)
+		{
+			D3DX10_IMAGE_LOAD_INFO _loadInfo;
+
+			_loadInfo.Width = D3DX10_FROM_FILE;
+			_loadInfo.Height = D3DX10_FROM_FILE;
+			_loadInfo.Depth = D3DX10_FROM_FILE;
+			_loadInfo.FirstMipLevel = 0;
+			_loadInfo.MipLevels = D3DX10_FROM_FILE;
+			_loadInfo.Usage = D3D10_USAGE_STAGING;
+			_loadInfo.BindFlags = 0;
+			_loadInfo.CpuAccessFlags = D3D10_CPU_ACCESS_WRITE | D3D10_CPU_ACCESS_READ;
+			_loadInfo.MiscFlags = 0;
+			_loadInfo.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+			_loadInfo.Filter = D3DX10_FILTER_NONE;
+			_loadInfo.MipFilter = D3DX10_FILTER_NONE;
+			_loadInfo.pSrcInfo = 0;
+			stringstream _ss; _ss << _rkTextureFileName << i << _rkSuffix; 
+			string _sFullFilePath = resourceDirectory().append(_ss.str());
+			HR(D3DX10CreateTextureFromFileA(m_pd3dDevice, _sFullFilePath.c_str(), &_loadInfo, 0, (ID3D10Resource**)&_sourceTextures[i], 0));
+		}
+
+		// Create the texture array.  Each element in the texture 
+		// array has the same format/dimensions.
+		D3D10_TEXTURE2D_DESC _texElementDesc;
+		_sourceTextures[0]->GetDesc(&_texElementDesc);
+
+
+		D3D10_TEXTURE2D_DESC _textureArrayDesc;
+		_textureArrayDesc.Width = _texElementDesc.Width;
+		_textureArrayDesc.Height = _texElementDesc.Height;
+		_textureArrayDesc.MipLevels = _texElementDesc.MipLevels;
+		_textureArrayDesc.ArraySize = _iArraySize;
+		_textureArrayDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+		_textureArrayDesc.SampleDesc.Count = 1;
+		_textureArrayDesc.SampleDesc.Quality = 0;
+		_textureArrayDesc.Usage = D3D10_USAGE_DEFAULT;
+		_textureArrayDesc.BindFlags = D3D10_BIND_SHADER_RESOURCE;
+		_textureArrayDesc.CPUAccessFlags = 0;
+		_textureArrayDesc.MiscFlags = 0;
+
+		ID3D10Texture2D* _pTexArray = 0;
+		HR(m_pd3dDevice->CreateTexture2D(&_textureArrayDesc, 0, &_pTexArray));
+
+		// Copy individual texture elements into texture array.
+		// for each texture element...
+		for (unsigned i = 0; i < _iArraySize; ++i)
+		{
+			// for each mipmap level...
+			for (UINT j = 0; j < _texElementDesc.MipLevels; ++j)
+			{
+				D3D10_MAPPED_TEXTURE2D _mappedTex2D;
+				_sourceTextures[i]->Map(j, D3D10_MAP_READ, 0, &_mappedTex2D);
+
+				m_pd3dDevice->UpdateSubresource(_pTexArray, D3D10CalcSubresource(j, i, _texElementDesc.MipLevels),
+					0, _mappedTex2D.pData, _mappedTex2D.RowPitch, 0);
+
+				_sourceTextures[i]->Unmap(j);
+			}
+		}
+
+		// Create a resource view to the texture array.
+		D3D10_SHADER_RESOURCE_VIEW_DESC _viewDesc;
+		_viewDesc.Format = _textureArrayDesc.Format;
+		_viewDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2DARRAY;
+		_viewDesc.Texture2DArray.MostDetailedMip = 0;
+		_viewDesc.Texture2DArray.MipLevels = _textureArrayDesc.MipLevels;
+		_viewDesc.Texture2DArray.FirstArraySlice = 0;
+		_viewDesc.Texture2DArray.ArraySize = _iArraySize;
+
+		HR(m_pd3dDevice->CreateShaderResourceView(_pTexArray, &_viewDesc, _ppRV));
+
+		// Cleanup--we only need the resource view.
+		SAFE_RELEASE(_pTexArray);
+		for (unsigned i = 0; i < _iArraySize; ++i)
+			SAFE_RELEASE(_sourceTextures[i]);
+
+		m_textureMap.addItem(_rkTextureFileName, *_ppRV);
+	}
+
+
+
+
 	/**
 	*	If texture not previously loaded, load and save it in container
 	*	@author Serge Radinovich
@@ -394,7 +496,7 @@
 	*/
 	void DX10Renderer::renderBegin(float _fDeltaTime)
 	{
-		m_pd3dDevice->ClearRenderTargetView(m_pRenderTargetView, GREEN);
+		m_pd3dDevice->ClearRenderTargetView(m_pRenderTargetView, LIGHT_GREY);
 		m_pd3dDevice->ClearDepthStencilView(m_pDepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0);
 
 		renderMeshes(_fDeltaTime);
@@ -423,17 +525,30 @@
 			if (!_kpRenderTask->rendering)
 				continue;
 
-			if (_kpRenderTask->textures[T_DIFFUSE])
-			{
-				_kpRenderTask->pFXDiffuseMapVar->AsShaderResource()->SetResource(_kpRenderTask->textures[T_DIFFUSE]);
-				_kpRenderTask->pFXSpecMapVar->AsShaderResource()->SetResource(_kpRenderTask->textures[T_SPECULAR]);
-				_kpRenderTask->pFXEyePosWVar->SetRawValue(&m_camera.m_transform.translation, 0, sizeof(D3DXVECTOR3));
+			static float s_fGameTime = 0.0f;
+			s_fGameTime += _fDeltaTime;
+			if (_kpRenderTask->pFXGameTimeVar)
+				_kpRenderTask->pFXGameTimeVar->SetFloat(s_fGameTime);
 
-				_kpRenderTask->pFX->GetVariableByName("gLight")->SetRawValue(&m_lightMap[LT_PARALLEL].back(), 0, sizeof(Light)); 
-				//				//int i = 1;
-				//				//_kpRenderTask->pFX->GetVariableByName("gLightType")->SetRawValue(&i, 0, sizeof(int));
-				//				_kpRenderTask->pFXTexMtxVar->AsMatrix()->SetMatrix((float*)&_kpRenderTask->textureMatrix);
-			}
+			_kpRenderTask->pFX->GetVariableByName("gLight")->SetRawValue(&m_lightMap[LT_PARALLEL].back(), 0, sizeof(Light));
+			_kpRenderTask->pFXEyePosWVar->SetRawValue(&m_camera.m_transform.translation, 0, sizeof(D3DXVECTOR3));
+
+
+			_kpRenderTask->pFXTexArrayVar->AsShaderResource()->SetResource(_kpRenderTask->pTextureArray);
+			_kpRenderTask->pFXAnimRateVar->AsScalar()->SetFloat(_kpRenderTask->fAnimRate);
+			_kpRenderTask->pFXSpriteCountVar->AsScalar()->SetFloat(_kpRenderTask->iSpriteCount);
+
+			//if (_kpRenderTask->textures[T_DIFFUSE])
+			//{
+			//	_kpRenderTask->pFXDiffuseMapVar->AsShaderResource()->SetResource(_kpRenderTask->textures[T_DIFFUSE]);
+			//	_kpRenderTask->pFXSpecMapVar->AsShaderResource()->SetResource(_kpRenderTask->textures[T_SPECULAR]);
+			//	_kpRenderTask->pFXEyePosWVar->SetRawValue(&m_camera.m_transform.translation, 0, sizeof(D3DXVECTOR3));
+
+			//	_kpRenderTask->pFX->GetVariableByName("gLight")->SetRawValue(&m_lightMap[LT_PARALLEL].back(), 0, sizeof(Light)); 
+			//	//				//int i = 1;
+			//	//				//_kpRenderTask->pFX->GetVariableByName("gLightType")->SetRawValue(&i, 0, sizeof(int));
+			//	//				_kpRenderTask->pFXTexMtxVar->AsMatrix()->SetMatrix((float*)&_kpRenderTask->textureMatrix);
+			//}
 
 			//Set up transformation matrix for shader		
 			_kpRenderTask->pFXWVPVar->AsMatrix()->SetMatrix((float*)(_kpRenderTask->transformMtx * m_camera.m_viewMtx * m_camera.m_projMtx));
@@ -624,7 +739,7 @@
 	
 	*	@param	pair<const D3D10_INPUT_ELEMENT_DESC*, int>	Data loaded in this function
 	*/
-	void DX10Renderer::loadRenderTask2D(RenderTask2D& _taskToLoad, const string& _rTextureName, const string& _rkFXName, const string& _rkTechName, float _fDimX, float _fDimY)
+	void DX10Renderer::loadRenderTask2D(RenderTask2D& _taskToLoad, const string& _rTextureName, const string& _rkSuffix, const UINT _kiSpriteCount, const string& _rkFXName, const string& _rkTechName, float _fDimX, float _fDimY)
 	{
 		//SHADERS
 		s_pInstance->initializeShaders(_rkFXName, _rkTechName, &_taskToLoad, _rTextureName);
@@ -661,5 +776,7 @@
 
 
 		//TEXTURE
-		s_pInstance->createTexture(_rTextureName, &_taskToLoad.textures[0]);
+		//s_pInstance->createTexture(_rTextureName, &_taskToLoad.textures[0]);
+
+		s_pInstance->createTextureArray(_rTextureName, _rkSuffix, _kiSpriteCount, &_taskToLoad.pTextureArray);
 	}

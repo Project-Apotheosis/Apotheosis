@@ -1,3 +1,6 @@
+#ifndef __PLATFORM_H__
+#define __PLATFORM_H__
+
 #include "IActor.h"
 
 class Platform : public IActor
@@ -20,7 +23,7 @@ public: //Interface
 
 	void init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY) override
 	{
-		IActor::initializeRendering("WireFence.dds", "texAlpha.fx", "TexAlphaTech", _fDimX, _fDimY);
+		IActor::initializeRendering("platform", ".dds", 1, "texAlpha.fx", "TexAlphaTech", _fDimX, _fDimY);
 
 		m_rigidBodies.push_back(PhysicsSystem::createBody(b2BodyType::b2_staticBody, _rkPosition));
 
@@ -44,3 +47,5 @@ public: //Interface
 		
 	}
 };
+
+#endif //__PLATFORM_H__

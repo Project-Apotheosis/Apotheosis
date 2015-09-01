@@ -94,10 +94,14 @@
 
 		
 
-		static void loadRenderTask2D(RenderTask2D& _taskToLoad, const string& _rTextureName, const string& _rkFXName, const string& _rkTechName, float _fDimX, float _fDimY);
-		static void createTexture(const string& _rkTextureFileName, ID3D10ShaderResourceView** _ppRV);
+		static void loadRenderTask2D(RenderTask2D& _taskToLoad, const string& _rTextureName, const string& _rkSuffix, const UINT _kiSpriteCount, const string& _rkFXName, const string& _rkTechName, float _fDimX, float _fDimY);
+		
+		
 	private: //Internals
 		
+		void createTextureArray(const string& _rkTextureFileName, const string& _rkSuffix, const UINT _kiSpriteCount, ID3D10ShaderResourceView** _ppRV);
+		void createTexture(const string& _rkTextureFileName, ID3D10ShaderResourceView** _ppRV);
+
 		//GameRoot should use this to create lighting.fx
 		void createEffectFromFile(const string& _krFXFileName);
 		//Particles use this with empty mesh name as all particles use the same input layout

@@ -15,10 +15,10 @@ Player::~Player()
 void Player::init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY)
 {
 	//Rendering
-	IActor::initializeRendering("grass.dds", "texAlpha.fx", "TexAlphaTech", _fDimX, _fDimY);
-	IActor::addTexture("WireFence.dds");
-	IActor::initializeRendering("water1.dds", "texAlpha.fx", "TexAlphaTech", _fDimX, _fDimY);
-	IActor::addTexture("water2.dds");
+	IActor::initializeRendering("fire", ".bmp", 22, "texAlpha.fx", "TexAlphaTech", _fDimX, _fDimY);
+	//IActor::addTexture("WireFence.dds");
+	IActor::initializeRendering("playerJump", ".dds", 2, "texAlpha.fx", "TexAlphaTech", _fDimX, _fDimY);
+	//IActor::addTexture("water2.dds");
 	IActor::setCurrState(0);
 
 	//Physics
@@ -37,7 +37,7 @@ void Player::init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY)
 
 void Player::update(float _fDeltaTime)
 {
-	IActor::animate(_fDeltaTime);
+	//IActor::animate(_fDeltaTime);
 
 	//float _fAngle = m_rigidBodies.back()->GetAngle();
 	//Transform::rotateAroundAxis(&m_transform, &D3DXVECTOR3(0.0f, 0.0f, 1.0f), _fAngle);

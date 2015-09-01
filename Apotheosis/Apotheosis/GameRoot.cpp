@@ -30,6 +30,9 @@ GameRoot::GameRoot()
 	m_initializer.iHeight = SCREEN_HEIGHT_MAX;
 	m_initializer.bIsWindowed = false;
 	m_initializer.bVSYNC = false;*/
+
+	m_scenes[0] = new GameplayScene();
+
 }
 
 /**
@@ -38,8 +41,13 @@ GameRoot::GameRoot()
 */
 void GameRoot::shutDown()
 {
+	
+
 	//Destroy all Root architecture (Mesh, Scene, DX9, Managers etc)
 	IRoot::shutDown();
+
+	for (auto& _rpScene : m_scenes)
+		SAFE_DELETE(_rpScene);
 }
 
 /**
@@ -59,6 +67,10 @@ bool GameRoot::init()
 {
 	m_pPhysicsSystem->init(-30, 30, -30, 30);
 
+	for (auto& _rpScene : m_scenes)
+		_rpScene->init();
+
+
 	return true;
 }
 
@@ -70,11 +82,6 @@ bool GameRoot::init()
 */
 void GameRoot::createScene() //AB: Object Ordering
 {
-	for (UINT i = 0; i < 4; ++i)
-		m_platforms[i].init(b2Vec2(-25.0f + 10.0f*i, -2.0f), 3.0f, 1.0f);
-
-	for (UINT i = 0; i < m_players.size(); ++i)
-		m_players[i].init(b2Vec2(-2.0f + 2.0f*i, 5.0f), 1.0f, 1.0f);
 
 	m_pCamera->setPos(&D3DXVECTOR3(0.0f, 0.0f, -100.0f));
 	m_pCamera->lookAt(&D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -96,11 +103,8 @@ void GameRoot::update(float _fDeltaTime)
 {
 	InputHandler::getInstance()->update();
 	
-	for (auto& rPlatform : m_platforms)
-		rPlatform.update(_fDeltaTime);
-
-	for (auto& _rPlayer : m_players)
-		_rPlayer.update(_fDeltaTime);
+	for (auto& _rpScene : m_scenes)
+		_rpScene->update(_fDeltaTime);
 
 	/*D3DXMATRIX _rotMtx;
 	D3DXMatrixRotationAxis(&_rotMtx, &D3DXVECTOR3(0.0f, 0.0f, 1.0f), D3DX_PI * _fDeltaTime);

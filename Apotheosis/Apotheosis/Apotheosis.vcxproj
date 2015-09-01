@@ -92,6 +92,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="D3DInputmanager.cpp" />
     <ClCompile Include="DX10Renderer.cpp" />
+    <ClCompile Include="IActor.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="XInputManager.cpp" />
     <ClCompile Include="GameRoot.cpp" />
@@ -108,6 +109,8 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="D3DInputManager.h" />
     <ClInclude Include="DX10Renderer.h" />
+    <ClInclude Include="GameplayScene.h" />
+    <ClInclude Include="IGameScene.h" />
     <ClInclude Include="XInputManager.h" />
     <ClInclude Include="GameRoot.h" />
     <ClInclude Include="IActor.h" />
