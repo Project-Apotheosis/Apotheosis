@@ -19,53 +19,54 @@
 #include "DX10Renderer.h"
 #include "PhysicsSystem.h"
 #include <queue>
-	class IActor
-	{
-	public: //Construction
 
-		IActor();
+class IActor
+{
+public: //Construction
 
-		virtual	~IActor();
+	IActor();
 
-		virtual void init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY) = 0;
+	virtual	~IActor();
 
-	protected: //Data
+	virtual void init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY) = 0;
 
-		Transform		m_transform;
-		vector<RenderTask2D>	m_renderTasks;
-		vector<b2Body*>			m_rigidBodies;
-		vector<queue<ID3D10ShaderResourceView*>> m_textureAnimQueues{};
-		float m_fAnimRate{ 1.0f };
-		float m_fLastAnim{};
+protected: //Data
 
-		UINT m_iCurrTaskIndex{ 0 };
+	Transform		m_transform;
+	vector<RenderTask2D>	m_renderTasks; //Rendering components
+	vector<b2Body*>			m_rigidBodies; //Physics components
+	vector<queue<ID3D10ShaderResourceView*>> m_textureAnimQueues{};
+	float m_fAnimRate{ 1.0f };
+	float m_fLastAnim{};
 
-	public: //Interface
+	UINT m_iCurrTaskIndex{ 0 };
 
-		Transform& transform() { return m_transform; }
-		vector<RenderTask2D>& renderTask() { return m_renderTasks; }
-		vector<b2Body*>& rigidBodies() { return m_rigidBodies; }
+public: //Interface
 
-		void initializeRendering(const string& _rkTexture, const string& _rkSuffix, const UINT _kiSpriteCount, const string& _rkFX, const string& _rkTech, float _fDimX, float _fDimY);
+	Transform& transform() { return m_transform; }
+	vector<RenderTask2D>& renderTask() { return m_renderTasks; }
+	vector<b2Body*>& rigidBodies() { return m_rigidBodies; }
 
-		//void addTexture(const string& _rkTexture);
+	void initializeRendering(const string& _rkTexture, const string& _rkSuffix, const UINT _kiSpriteCount, const string& _rkFX, const string& _rkTech, float _fDimX, float _fDimY);
 
-		/**
-		*	Update every frame. Use this function to manipulate components
-		*	@param _fDeltaTime	Change in time since last frame
-		*/
-		virtual void update(float _fDeltaTime) = 0;
+	//void addTexture(const string& _rkTexture);
 
-		virtual void setActive(bool _bActive);
+	/**
+	*	Update every frame. Use this function to manipulate components
+	*	@param _fDeltaTime	Change in time since last frame
+	*/
+	virtual void update(float _fDeltaTime) = 0;
 
-	protected:
+	virtual void setActive(bool _bActive);
 
-		void setCurrState(UINT _iIndex);
-		//void animate(float _fDeltaTime);
+protected:
+
+	void setCurrState(UINT _iIndex);
+	//void animate(float _fDeltaTime);
 
 
 
-	};
+};
 
 
 
