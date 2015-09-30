@@ -12,8 +12,8 @@ class GameplayScene : public IGameScene
 
 public: //Construction
 
-	GameplayScene(){}
-	~GameplayScene(){}
+	GameplayScene();
+	~GameplayScene();
 
 	GameplayScene(const GameplayScene&) = delete;
 	GameplayScene& operator=(const GameplayScene&) = delete;
@@ -27,35 +27,20 @@ private: //Data
 
 public: //Interface
 
-	void init() override
-	{
+	void init() override;
 
-		for (UINT i = 0; i < 4; ++i)
-			m_platforms[i].init(b2Vec2(-25.0f + 10.0f*i, -2.0f), 3.0f, 1.0f);
+	void update(float _fDeltaTime) override;
 
-		for (UINT i = 0; i < m_players.size(); ++i)
-			m_players[i].init(b2Vec2(-2.0f + 2.0f*i, 5.0f), 1.0f, 1.0f);
-			
+	void setActive(bool _bActive) override;
 
-	}
-	void update(float _fDeltaTime) override
-	{
-		for (auto& rPlatform : m_platforms)
-			rPlatform.update(_fDeltaTime);
+	bool sceneEnding(E_SCENE& _reNextScene) override;
 
-		for (auto& _rPlayer : m_players)
-			_rPlayer.update(_fDeltaTime);
-	}
+private:
 
-	void setActive(bool _bActive) override
-	{
-		for (auto& rPlatform : m_platforms)
-			rPlatform.setActive(_bActive);
+	static bool s_bSceneEnding;
+	static E_SCENE s_nextSceneSelected;
 
-		for (auto& _rPlayer : m_players)
-			_rPlayer.setActive(_bActive);
-	}
-
+	static void loadMenuScene();
 };
 
 

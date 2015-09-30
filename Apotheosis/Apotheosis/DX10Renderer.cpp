@@ -554,6 +554,7 @@
 			_kpRenderTask->pFXWVPVar->AsMatrix()->SetMatrix((float*)(_kpRenderTask->transformMtx * m_camera.m_viewMtx * m_camera.m_projMtx));
 			_kpRenderTask->pFXWorldVar->AsMatrix()->SetMatrix((float*)D3DXMATRIX(_kpRenderTask->transformMtx));
 
+			_kpRenderTask->pFX->GetVariableByName("gCurrentTextureIndex")->AsScalar()->SetInt(_kpRenderTask->iTextureIndex);
 
 			//Set the input layout for vertices
 			m_pd3dDevice->IASetInputLayout(_kpRenderTask->pInputLayout);

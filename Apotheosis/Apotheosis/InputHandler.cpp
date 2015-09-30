@@ -108,10 +108,7 @@ bool InputHandler::handleJump(UINT _iPlayerID, float _fDeltaTime)
 */
 bool InputHandler::handleObjectTranslation(UINT _iPlayerID, D3DXVECTOR2& _rTranslate, float _fDeltaTime)
 {
-	//static float s_fLastHandle = 0.0f;
-	//static float s_fTimeElapsed = 0.0f;
 
-	//s_fTimeElapsed += _fDeltaTime;
 	m_inputTimers[_iPlayerID].first += _fDeltaTime;
 
 
@@ -168,4 +165,21 @@ void InputHandler::update()
 		
 	m_pDinput->pollKeyboard();
 	m_pDinput->pollMouse();
+}
+
+
+bool InputHandler::handleGeneralButton(UINT _iPlayerID, E_GAMEPAD_BUTTON _eButtonRequested, float _fDeltaTime)
+{
+	
+	static float s_fLastHandle = 0.0f;
+	static float s_fTimeElapsed = 0.0f;
+
+	s_fTimeElapsed += _fDeltaTime;
+
+	if (s_fTimeElapsed > 0.5f && m_pGamePads[_iPlayerID]->getButtonDown(_eButtonRequested))
+	{
+		s_fTimeElapsed = 0.0f;
+		return true;
+	}
+	return false;
 }

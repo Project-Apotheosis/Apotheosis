@@ -59,6 +59,8 @@ public: //Interface
 	bool handleJump(UINT _iPlayerID, float _fDeltaTime);
 	bool handleShoot(UINT _iPlayerID, float _fDeltaTime);
 
+	bool handleGeneralButton(UINT _iPlayerID, E_GAMEPAD_BUTTON _eButtonRequested, float _fDeltaTime);
+
 	void update();
 };
 

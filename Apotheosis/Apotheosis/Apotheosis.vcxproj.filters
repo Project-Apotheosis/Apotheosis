@@ -63,6 +63,12 @@
     <ClCompile Include="IActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppWin32.h">
@@ -128,12 +134,21 @@
     <ClInclude Include="GameplayScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MainMenuScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="texAlpha.fx">
       <Filter>Effects</Filter>
     </FxCompile>
     <FxCompile Include="lighthelper.fx">
+      <Filter>Effects</Filter>
+    </FxCompile>
+    <FxCompile Include="button.fx">
       <Filter>Effects</Filter>
     </FxCompile>
   </ItemGroup>

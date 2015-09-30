@@ -91,19 +91,10 @@ struct RenderTaskShaded
 
 		//Resource vars
 		ID3D10EffectShaderResourceVariable* pFXTexArrayVar{};
-		//ID3D10EffectShaderResourceVariable* pFXDiffuseMapVar{};
-		//ID3D10EffectShaderResourceVariable* pFXSpecMapVar{};
-		//ID3D10EffectShaderResourceVariable* pFXCubeMapVar{};
-		//ID3D10EffectShaderResourceVariable* pFXNormalMapVar{};
-		//Terrain rendering
-		/*ID3D10EffectShaderResourceVariable* pFXLayer0Var{};
-		ID3D10EffectShaderResourceVariable* pFXLayer1Var{};
-		ID3D10EffectShaderResourceVariable* pFXLayer2Var{};
-		ID3D10EffectShaderResourceVariable* pFXLayer3Var{};
-		ID3D10EffectShaderResourceVariable* pFXLayer4Var{};
-		ID3D10EffectShaderResourceVariable* pFXBlendMapVar{};*/
+
 
 		//Textures
+		UINT iTextureIndex{};
 		ID3D10ShaderResourceView* pTextureArray{};
 		std::array<ID3D10ShaderResourceView*, T_MAX> textures{};
 		D3DXMATRIX				  textureMatrix;

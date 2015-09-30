@@ -92,7 +92,9 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="D3DInputmanager.cpp" />
     <ClCompile Include="DX10Renderer.cpp" />
+    <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="IActor.cpp" />
+    <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="XInputManager.cpp" />
     <ClCompile Include="GameRoot.cpp" />
@@ -110,7 +112,9 @@
     <ClInclude Include="D3DInputManager.h" />
     <ClInclude Include="DX10Renderer.h" />
     <ClInclude Include="GameplayScene.h" />
+    <ClInclude Include="IButton.h" />
     <ClInclude Include="IGameScene.h" />
+    <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="XInputManager.h" />
     <ClInclude Include="GameRoot.h" />
     <ClInclude Include="IActor.h" />
@@ -128,6 +132,16 @@
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="button.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4.0</ShaderModel>
+    </FxCompile>
     <FxCompile Include="lighthelper.fx">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </EntryPointName>

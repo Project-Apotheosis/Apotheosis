@@ -19,6 +19,9 @@
 #include "Platform.h"
 #include "Player.h"
 #include "GameplayScene.h"
+#include "MainMenuScene.h"
+
+
 
 
 class GameRoot : public IRoot
@@ -28,12 +31,14 @@ public: //Construction
 	~GameRoot();
 	void shutDown()	override;
 
-
 private: //Data
 
-	array<IGameScene*, 1> m_scenes;
+	E_SCENE m_eCurrentScene{ S_MAINMENU };
+	array<IGameScene*, 2> m_scenes;
 
 	pair<E_LIGHT_TYPE, unsigned> m_parallelLightHandle{};
+
+
 private: //Internals
 
 	bool init()								override;

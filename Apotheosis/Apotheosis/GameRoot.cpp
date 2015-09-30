@@ -31,8 +31,9 @@ GameRoot::GameRoot()
 	m_initializer.bIsWindowed = false;
 	m_initializer.bVSYNC = false;*/
 
-	m_scenes[0] = new GameplayScene();
-
+	
+	m_scenes[0] = new MainMenuScene();
+	m_scenes[1] = new GameplayScene();
 }
 
 /**
@@ -67,8 +68,13 @@ bool GameRoot::init()
 {
 	m_pPhysicsSystem->init(-30, 30, -30, 30);
 
-	for (auto& _rpScene : m_scenes)
-		_rpScene->init();
+	for (UINT i = 0; i < m_scenes.size(); ++i)
+	{
+		m_scenes[i]->init();
+		if (i != m_eCurrentScene)
+			m_scenes[i]->setActive(false);
+	}
+
 
 
 	return true;
@@ -103,8 +109,18 @@ void GameRoot::update(float _fDeltaTime)
 {
 	InputHandler::getInstance()->update();
 	
-	for (auto& _rpScene : m_scenes)
-		_rpScene->update(_fDeltaTime);
+
+
+
+	m_scenes[m_eCurrentScene]->update(_fDeltaTime);
+
+	E_SCENE _eTempScene;
+	if (m_scenes[m_eCurrentScene]->sceneEnding(_eTempScene))
+	{
+		m_scenes[m_eCurrentScene]->setActive(false);
+		m_eCurrentScene = _eTempScene;
+		m_scenes[m_eCurrentScene]->setActive(true);
+	}
 
 	/*D3DXMATRIX _rotMtx;
 	D3DXMatrixRotationAxis(&_rotMtx, &D3DXVECTOR3(0.0f, 0.0f, 1.0f), D3DX_PI * _fDeltaTime);

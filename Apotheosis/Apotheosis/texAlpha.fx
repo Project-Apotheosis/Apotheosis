@@ -22,6 +22,8 @@ float3 ParallelLight(SurfaceInfo v, Light L, float3 eyePos)
 {
 	float3 litColor = float3(0.0f, 0.0f, 0.0f);
 
+
+
 		// The light vector aims opposite the direction the light rays travel.
 		float3 lightVec = -L.dir;
 
@@ -133,23 +135,22 @@ float4 PS(VS_OUT pIn) : SV_Target
 	//float4 diffuse = gDiffuseMap.Sample(gTriLinearSam, pIn.texC);
 	//float4 spec    = gSpecMap.Sample( gTriLinearSam, pIn.texC );
 	
-	
 	// Interpolating normal can make it not be of unit length so normalize it.
     float3 normalW = normalize(pIn.normalW);
     
 	int index = (gGameTime * gAnimRate) % gSpriteCount;
 	float4 diffuse = gTexArray.Sample(gTriLinearSam, float3(pIn.texC, index));
 
-	float4 spec = diffuse;
+		//float4 spec = diffuse;
 		// Map [0,1] --> [0,256]
-		spec.a *= 256.0f;
+		//	spec.a *= 256.0f;
 
 
-	// Compute the lit color for this pixel.
-    SurfaceInfo v = {pIn.posW, normalW, diffuse, spec};
-	float3 litColor = ParallelLight(v, gLight, gEyePosW);
-    
-    return float4(litColor, 1.0f);
+		// Compute the lit color for this pixel.
+		//SurfaceInfo v = {pIn.posW, normalW, diffuse, spec};
+		//float3 litColor = ParallelLight(v, gLight, gEyePosW);
+		return diffuse;
+    //return float4(litColor, 1.0f);
 }
 
 technique10 TexAlphaTech

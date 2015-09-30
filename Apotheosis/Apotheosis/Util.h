@@ -27,6 +27,7 @@
 using namespace std;
 
 
+
 // Enable extra D3D debugging in debug builds if using the debug DirectX runtime.  
 // This makes D3D Objects work well in the debugger watch window, but slows down 
 // performance slightly.
@@ -62,6 +63,12 @@ using namespace std;
 #define SAFE_RELEASE(p)      { if(p) { (p)->Release(); (p)=NULL; } }
 
 #pragma warning(disable:4351) //Default initialization of char data[256]
+
+
+enum E_SCENE : UINT { S_MAINMENU, S_GAMEPLAY, S_MAX };
+
+
+
 
 
 	// Randomness
