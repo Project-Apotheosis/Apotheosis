@@ -32,6 +32,8 @@ public: //Construction
 
 protected: //Data
 
+	bool m_bActive{ true };
+
 	Transform		m_transform;
 	vector<RenderTask2D>	m_renderTasks; //Rendering components
 	vector<b2Body*>			m_rigidBodies; //Physics components
@@ -43,13 +45,14 @@ protected: //Data
 
 public: //Interface
 
+	bool isActive() { return m_bActive; }
+	b2Vec2 getPosition();
+
 	Transform& transform() { return m_transform; }
 	vector<RenderTask2D>& renderTask() { return m_renderTasks; }
 	vector<b2Body*>& rigidBodies() { return m_rigidBodies; }
 
 	void initializeRendering(const string& _rkTexture, const string& _rkSuffix, const UINT _kiSpriteCount, const string& _rkFX, const string& _rkTech, float _fDimX, float _fDimY);
-
-	//void addTexture(const string& _rkTexture);
 
 	/**
 	*	Update every frame. Use this function to manipulate components
@@ -57,7 +60,7 @@ public: //Interface
 	*/
 	virtual void update(float _fDeltaTime) = 0;
 
-	virtual void setActive(bool _bActive);
+	void setActive(bool _bActive);
 
 protected:
 

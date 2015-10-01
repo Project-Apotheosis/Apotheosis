@@ -1,0 +1,5 @@
+C:/Program Files (x86)/pugixml/lib/pugixml.lib
+C:/Program Files (x86)/pugixml/include/pugixml.hpp
+C:/Program Files (x86)/pugixml/include/pugiconfig.hpp
+C:/Program Files (x86)/pugixml/lib/cmake/pugixml/pugixml-config.cmake
+C:/Program Files (x86)/pugixml/lib/cmake/pugixml/pugixml-config-debug.cmake

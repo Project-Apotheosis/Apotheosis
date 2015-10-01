@@ -1,0 +1,22 @@
+# CMake generation dependency list for this directory.
+F:/Current/CURRENT/DX10 Tyro/PugiXML/pugixml-1.6/scripts/CMakeLists.txt
+F:/Sem2/PHYSICS/2DPhysicsProject/2DPhysicsProject/PugiXML/PugiXML Build/CMakeFiles/3.3.0-rc3/CMakeSystem.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeSystemSpecificInitialize.cmake
+F:/Sem2/PHYSICS/2DPhysicsProject/2DPhysicsProject/PugiXML/PugiXML Build/CMakeFiles/3.3.0-rc3/CMakeCCompiler.cmake
+F:/Sem2/PHYSICS/2DPhysicsProject/2DPhysicsProject/PugiXML/PugiXML Build/CMakeFiles/3.3.0-rc3/CMakeCXXCompiler.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeSystemSpecificInformation.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeGenericSystem.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/Windows.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/WindowsPaths.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeCInformation.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/Windows-MSVC-C.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/Windows-MSVC.cmake
+F:/Sem2/PHYSICS/2DPhysicsProject/2DPhysicsProject/PugiXML/PugiXML Build/CMakeFiles/3.3.0-rc3/CMakeRCCompiler.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeRCInformation.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeCommonLanguageInclude.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeCXXInformation.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Compiler/MSVC-CXX.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/Windows-MSVC-CXX.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/Windows-MSVC.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeCommonLanguageInclude.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.3/Modules/GNUInstallDirs.cmake

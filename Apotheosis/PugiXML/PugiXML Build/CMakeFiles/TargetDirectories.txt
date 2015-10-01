@@ -1,0 +1,3 @@
+F:/Sem2/PHYSICS/2DPhysicsProject/2DPhysicsProject/PugiXML/PugiXML Build/CMakeFiles/pugixml.dir
+F:/Sem2/PHYSICS/2DPhysicsProject/2DPhysicsProject/PugiXML/PugiXML Build/CMakeFiles/ALL_BUILD.dir
+F:/Sem2/PHYSICS/2DPhysicsProject/2DPhysicsProject/PugiXML/PugiXML Build/CMakeFiles/ZERO_CHECK.dir

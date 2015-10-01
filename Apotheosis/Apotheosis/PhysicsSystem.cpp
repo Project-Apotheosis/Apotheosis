@@ -16,7 +16,8 @@ PhysicsSystem::~PhysicsSystem()
 }
 
 void PhysicsSystem::init(float _fMinX, float _fMaxX, float _fMinY, float _fMaxY)
-{	array<b2Body*, 4> _walls{};
+{
+	array<b2Body*, 4> _walls{};
 	array<b2Vec2, 4> _positions{};
 	array<b2Vec2, 4> _dimensions{};
 	//Vertical
@@ -31,13 +32,18 @@ void PhysicsSystem::init(float _fMinX, float _fMaxX, float _fMinY, float _fMaxY)
 	b2PolygonShape _groundBox;
 	for (int i = 0; i < 4; ++i)
 	{		
-		_groundBodyDef.position.Set(_positions[i].x, _positions[i].y);		_pGroundBody = m_world.CreateBody(&_groundBodyDef);
+		_groundBodyDef.position.Set(_positions[i].x, _positions[i].y);
+
+		_pGroundBody = m_world.CreateBody(&_groundBodyDef);
 
 		_groundBox.SetAsBox(_dimensions[i].x, _dimensions[i].y);
 
 		_pGroundBody->CreateFixture(&_groundBox, 0.0f);
 	}
-		
+	
+
+
+	
 }
 
 void PhysicsSystem::shutDown()
@@ -56,12 +62,14 @@ b2Body* PhysicsSystem::createBody(b2BodyType _eType, const b2Vec2& _rkPosition)
 	bodyDef.type = _eType;
 	bodyDef.position.Set(_rkPosition.x, _rkPosition.y);
 	bodyDef.fixedRotation = true;
-	return s_pInstance->m_world.CreateBody(&bodyDef);}
+	return s_pInstance->m_world.CreateBody(&bodyDef);
+}
 
 void PhysicsSystem::addFixtureToBody(b2Body* _pBody, const b2PolygonShape& _rkShape, b2FixtureDef& _rkFixtureDef)
 {
 
 	_rkFixtureDef.shape = &_rkShape;
-
+
+
 	_pBody->CreateFixture(&_rkFixtureDef);
 }

@@ -383,3 +383,13 @@
 		D3DXQuaternionSlerp(&_pOut->rotation, &_pOut->rotation, &_targetQ, _fInterpFactor);//MF: D3DX Usage
 	}
 
+
+	void Transform::setRotation2D(Transform* out, const b2Rot& _rb2Rot)
+	{
+		D3DXQuaternionIdentity(&out->rotation);
+		Transform::rotateAroundRight(out, (float)-D3DX_PI / 2.0f);
+
+		Transform::rotateAroundAxis(out, &D3DXVECTOR3(0.0f, 0.0f, 1.0f), _rb2Rot.GetAngle());
+
+	}
+

@@ -21,16 +21,19 @@ void MainMenuScene::init()
 	vector<void(*)()> _callbacks;
 	_callbacks.push_back(loadGameplayScene);
 
-	for (auto& rButton : m_buttons)
-		rButton.initExecutable(_callbacks);
+	for_each(m_buttons.begin(), m_buttons.end(), [&, _callbacks](MainMenuButton& _rButton){_rButton.initExecutable(_callbacks); });
+	//for (auto& rButton : m_buttons)
+	//	rButton.initExecutable(_callbacks);
 
 	m_buttons.front().highlight(true); //Top button is automatically selected
 }
 
 void MainMenuScene::update(float _fDeltaTime) 
 {
-	for (auto& rButton : m_buttons)
-		rButton.update(_fDeltaTime);
+	for_each(m_buttons.begin(), m_buttons.end(), [&, _fDeltaTime](MainMenuButton& _rButton){ _rButton.update(_fDeltaTime); });
+
+	//for (auto& rButton : m_buttons)
+	//	rButton.update(_fDeltaTime);
 
 
 	//Handle input 
@@ -68,8 +71,9 @@ void MainMenuScene::navigateMenu(bool _bUp)
 
 void MainMenuScene::setActive(bool _bActive) 
 {
-	for (auto& rButton : m_buttons)
-		rButton.setActive(_bActive);
+	for_each(m_buttons.begin(), m_buttons.end(), [&, _bActive](MainMenuButton& _rButton){ _rButton.setActive(_bActive); });
+	//for (auto& rButton : m_buttons)
+	//	rButton.setActive(_bActive);
 }
 
 bool MainMenuScene::sceneEnding(E_SCENE& _reNextScene) 

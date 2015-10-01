@@ -69,6 +69,7 @@ enum E_SCENE : UINT { S_MAINMENU, S_GAMEPLAY, S_MAX };
 
 
 
+const int SCREEN_BOUND = 40;
 
 
 	// Randomness

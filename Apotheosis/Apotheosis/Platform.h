@@ -39,12 +39,30 @@ public: //Interface
 		m_transform.translation.x = m_rigidBodies.back()->GetPosition().x;
 		m_transform.translation.y = m_rigidBodies.back()->GetPosition().y;
 		m_renderTasks.back().transformMtx = *m_transform.matrix();
+
+		setActive(false);
 	}
 	
 	void update(float _fDeltaTime) override
 	{
 		//float _fAngle = m_rigidBodies.back()->GetAngle();
 		
+	}
+
+	void setPosition(float _fX, float _fY)
+	{
+		m_rigidBodies.back()->SetTransform(b2Vec2(_fX, _fY), m_rigidBodies.back()->GetAngle());
+		m_transform.translation.x = _fX;
+		m_transform.translation.y = _fY;
+		m_renderTasks[m_iCurrTaskIndex].transformMtx = *m_transform.matrix();
+	}
+
+	void setRotation(float _fAngle)
+	{
+		m_rigidBodies.back()->SetTransform(m_rigidBodies.back()->GetPosition(), _fAngle);
+
+		Transform::setRotation2D(&m_transform, m_rigidBodies.back()->GetTransform().q);
+		m_renderTasks[m_iCurrTaskIndex].transformMtx = *m_transform.matrix();
 	}
 };
 

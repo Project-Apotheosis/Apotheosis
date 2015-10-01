@@ -23,8 +23,8 @@
 GameRoot::GameRoot()
 {
 	//Edit these if default not satisfactory
-	m_initializer.iWidth = 1600;
-	m_initializer.iHeight = 1200;
+	m_initializer.iWidth = SCREEN_WIDTH_WINDOWED;
+	m_initializer.iHeight = SCREEN_HEIGHT_WINDOWED;
 
 	/*m_initializer.iWidth = SCREEN_WIDTH_MAX;
 	m_initializer.iHeight = SCREEN_HEIGHT_MAX;
@@ -66,7 +66,7 @@ GameRoot::~GameRoot()
 */
 bool GameRoot::init()
 {
-	m_pPhysicsSystem->init(-30, 30, -30, 30);
+	m_pPhysicsSystem->init(-SCREEN_BOUND, SCREEN_BOUND, -SCREEN_BOUND, SCREEN_BOUND);
 
 	for (UINT i = 0; i < m_scenes.size(); ++i)
 	{

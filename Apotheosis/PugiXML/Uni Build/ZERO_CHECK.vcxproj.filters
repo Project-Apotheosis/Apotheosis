@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\Current\CURRENT\DX10 Tyro\PugiXML\Uni Build\CMakeFiles\4daad7dfb0de123a23aea09836b87608\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D141F637-1FE5-4646-BD62-919C20E946B3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -106,6 +106,8 @@ void IActor::setCurrState(UINT _iIndex)
 
 void IActor::setActive(bool _bActive)
 {
+	m_bActive = _bActive;
+
 	for (auto& _rRenderTask : m_renderTasks)
 		_rRenderTask.rendering = _bActive;
 
@@ -113,3 +115,10 @@ void IActor::setActive(bool _bActive)
 		_rpBody->SetActive(_bActive);
 }
 
+b2Vec2 IActor::getPosition()
+{
+	b2Vec2 _return;
+	_return.x = m_transform.translation.x;
+	_return.y = m_transform.translation.y;
+	return _return;
+}

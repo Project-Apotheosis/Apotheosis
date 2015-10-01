@@ -74,7 +74,7 @@
 
 		//Steer transform toward new orientation based on newForward
 		static void rotateToward(Transform* out, const D3DXVECTOR3* newForward, float interpFactor);
-
+		static void setRotation2D(Transform* out, const b2Rot& _rb2Rot);
 	};
 
 #endif //__TRANSFORM_H__

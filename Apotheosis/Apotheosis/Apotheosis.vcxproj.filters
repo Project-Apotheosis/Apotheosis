@@ -140,6 +140,9 @@
     <ClInclude Include="IButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LevelLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="texAlpha.fx">
@@ -151,5 +154,10 @@
     <FxCompile Include="button.fx">
       <Filter>Effects</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="GameplayScene.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

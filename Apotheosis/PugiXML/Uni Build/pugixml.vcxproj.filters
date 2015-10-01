@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\Current\CURRENT\DX10 Tyro\PugiXML\pugixml-1.6\src\pugixml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\Current\CURRENT\DX10 Tyro\PugiXML\pugixml-1.6\src\pugixml.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Current\CURRENT\DX10 Tyro\PugiXML\pugixml-1.6\src\pugiconfig.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\Current\CURRENT\DX10 Tyro\PugiXML\pugixml-1.6\scripts\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A59D0F83-492B-42D2-8AA6-0502784636DD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{E4B98B4A-7F12-40A0-B2A7-9C74037EC733}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

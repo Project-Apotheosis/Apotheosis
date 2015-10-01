@@ -20,7 +20,9 @@ public: //Construction
 
 private: //Data
 
-	array<Platform, 4> m_platforms;
+	array<Platform, 10> m_platforms;
+
+	UINT m_iInactivePlatformCount{}; //Set from loading xml
 
 	//Player m_player;
 	array<Player, 4> m_players;

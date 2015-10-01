@@ -19,7 +19,7 @@
 #include "XInputManager.h"
 #include "D3DInputManager.h"
 
-class InputHandler 
+class InputHandler
 {
 private: //Construction
 
@@ -37,7 +37,7 @@ public: //Interface
 	static InputHandler* getInstance()
 	{
 		if (!s_pInstance)
-			s_pInstance = new InputHandler();		
+			s_pInstance = new InputHandler();
 
 		return s_pInstance;
 	}
@@ -61,7 +61,16 @@ public: //Interface
 
 	bool handleGeneralButton(UINT _iPlayerID, E_GAMEPAD_BUTTON _eButtonRequested, float _fDeltaTime);
 
+	bool handleMouseClick(int _iMouseButtonIndex, float _fDeltaTime, pair<float,float>& _rMousePos);
+
 	void update();
+
+private:
+
+
+	float mouseScreenCoordX();
+
+	float mouseScreenCoordY();
 };
 
 #endif //__INPUT_HANDLER_H__
