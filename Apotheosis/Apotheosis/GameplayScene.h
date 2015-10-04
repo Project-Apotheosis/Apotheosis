@@ -20,6 +20,8 @@ public: //Construction
 
 private: //Data
 
+	bool m_bSaveLevelOnExit{};
+
 	array<Platform, 10> m_platforms;
 
 	UINT m_iInactivePlatformCount{}; //Set from loading xml
@@ -37,12 +39,6 @@ public: //Interface
 
 	bool sceneEnding(E_SCENE& _reNextScene) override;
 
-private:
-
-	static bool s_bSceneEnding;
-	static E_SCENE s_nextSceneSelected;
-
-	static void loadMenuScene();
 };
 
 

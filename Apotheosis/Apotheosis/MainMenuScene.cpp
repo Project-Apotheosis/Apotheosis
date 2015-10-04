@@ -1,8 +1,5 @@
 #include "MainMenuScene.h"
-
-
-bool MainMenuScene::s_bSceneEnding = false;
-E_SCENE MainMenuScene::s_nextSceneSelected = S_GAMEPLAY;
+#include <functional>
 
 MainMenuScene::MainMenuScene(){}
 MainMenuScene::~MainMenuScene(){}
@@ -18,10 +15,10 @@ void MainMenuScene::init()
 	}
 
 	//Initialize buttons' executables
-	vector<void(*)()> _callbacks;
-	_callbacks.push_back(loadGameplayScene);
+	vector<function<void()>> _callbacks;
+	_callbacks.push_back([&](){ m_bSceneEnding = true; m_nextSceneSelected = S_GAMEPLAY; });
 
-	for_each(m_buttons.begin(), m_buttons.end(), [&, _callbacks](MainMenuButton& _rButton){_rButton.initExecutable(_callbacks); });
+	for_each(m_buttons.begin(), m_buttons.end(), [&](MainMenuButton& _rButton){_rButton.initExecutable(_callbacks); });
 	//for (auto& rButton : m_buttons)
 	//	rButton.initExecutable(_callbacks);
 
@@ -30,7 +27,7 @@ void MainMenuScene::init()
 
 void MainMenuScene::update(float _fDeltaTime) 
 {
-	for_each(m_buttons.begin(), m_buttons.end(), [&, _fDeltaTime](MainMenuButton& _rButton){ _rButton.update(_fDeltaTime); });
+	for_each(m_buttons.begin(), m_buttons.end(), [&](MainMenuButton& _rButton){ _rButton.update(_fDeltaTime); });
 
 	//for (auto& rButton : m_buttons)
 	//	rButton.update(_fDeltaTime);
@@ -71,24 +68,18 @@ void MainMenuScene::navigateMenu(bool _bUp)
 
 void MainMenuScene::setActive(bool _bActive) 
 {
-	for_each(m_buttons.begin(), m_buttons.end(), [&, _bActive](MainMenuButton& _rButton){ _rButton.setActive(_bActive); });
+	for_each(m_buttons.begin(), m_buttons.end(), [&](MainMenuButton& _rButton){ _rButton.setActive(_bActive); });
 	//for (auto& rButton : m_buttons)
 	//	rButton.setActive(_bActive);
 }
 
 bool MainMenuScene::sceneEnding(E_SCENE& _reNextScene) 
 {
-	if (MainMenuScene::s_bSceneEnding)
+	if (m_bSceneEnding)
 	{
-		_reNextScene = MainMenuScene::s_nextSceneSelected;
-		MainMenuScene::s_bSceneEnding = false; //Reset
+		_reNextScene = m_nextSceneSelected;
+		m_bSceneEnding = false; //Reset
 		return true;
 	}
 	return false;
-}
-
-void MainMenuScene::loadGameplayScene()
-{
-	MainMenuScene::s_bSceneEnding = true;
-	MainMenuScene::s_nextSceneSelected = S_GAMEPLAY;
 }

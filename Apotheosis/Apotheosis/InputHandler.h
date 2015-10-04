@@ -60,13 +60,11 @@ public: //Interface
 	bool handleShoot(UINT _iPlayerID, float _fDeltaTime);
 
 	bool handleGeneralButton(UINT _iPlayerID, E_GAMEPAD_BUTTON _eButtonRequested, float _fDeltaTime);
+	bool handleGeneralKB(char _cButton, float _fDeltaTime);
 
 	bool handleMouseClick(int _iMouseButtonIndex, float _fDeltaTime, pair<float,float>& _rMousePos);
 
 	void update();
-
-private:
-
 
 	float mouseScreenCoordX();
 

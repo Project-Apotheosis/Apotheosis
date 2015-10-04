@@ -75,6 +75,7 @@ private: //Data
 	UINT m_iCurrentButtonIndex{};
 
 
+
 public: //Interface
 
 	void init() override;
@@ -88,14 +89,6 @@ public: //Interface
 
 	bool sceneEnding(E_SCENE& _reNextScene) override;
 
-	//Statics
-
-private:
-
-	static bool s_bSceneEnding;
-	static E_SCENE s_nextSceneSelected;
-
-	static void loadGameplayScene();
 
 };
 

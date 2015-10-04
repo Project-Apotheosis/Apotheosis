@@ -22,6 +22,7 @@
 #include <vector>
 #include <array>
 #include <string>
+#include <functional>
 #include "Vertex.h"
 #include "Box2D.h"
 using namespace std;

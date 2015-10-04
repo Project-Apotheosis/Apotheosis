@@ -3,6 +3,7 @@
 
 #include "Util.h"
 
+
 class Executable
 {
 public:
@@ -14,11 +15,11 @@ public:
 
 private: //Data
 
-	std::vector<void(*)()> m_executableQueue{};
+	std::vector<function<void()> > m_executableQueue{};
 
 public: //Interface
 
-	void addToExeQueue(void(*_pFunc)())
+	void addToExeQueue(function<void()> _pFunc)
 	{
 		m_executableQueue.push_back(_pFunc);
 	}
@@ -53,7 +54,7 @@ protected: //Data
 
 public: //Interface
 
-	void initExecutable(const std::vector<void(*)()>& _krCallbacks)
+	void initExecutable(const std::vector<function<void()>>& _krCallbacks)
 	{
 		assert(m_pExecutable == nullptr);
 

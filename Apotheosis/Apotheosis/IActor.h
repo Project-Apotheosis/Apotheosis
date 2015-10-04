@@ -62,6 +62,9 @@ public: //Interface
 
 	void setActive(bool _bActive);
 
+	void setPosition(float _fX, float _fY);
+
+
 protected:
 
 	void setCurrState(UINT _iIndex);

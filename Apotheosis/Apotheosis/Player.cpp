@@ -48,6 +48,9 @@ void Player::update(float _fDeltaTime)
 	D3DXVECTOR2 _frameTranslation = D3DXVECTOR2(0.0f, 0.0f);
 	if (InputHandler::getInstance()->handleObjectTranslation(m_iPlayerID, _frameTranslation, _fDeltaTime))
 	{
+		if (!m_rigidBodies.back()->IsAwake())
+			m_rigidBodies.back()->SetAwake(true);
+
 		b2Vec2 _b2Vel = m_rigidBodies.back()->GetLinearVelocity();
 		_b2Vel.x = 0.0f;
 		m_rigidBodies.back()->SetLinearVelocity(_b2Vel);
@@ -61,6 +64,9 @@ void Player::update(float _fDeltaTime)
 	}
 	if (InputHandler::getInstance()->handleJump(m_iPlayerID, _fDeltaTime))
 	{
+		if (!m_rigidBodies.back()->IsAwake())
+			m_rigidBodies.back()->SetAwake(true);
+
 		IActor::setCurrState(1);
 		b2Vec2 _b2Vel = m_rigidBodies.back()->GetLinearVelocity();
 		_b2Vel.y = 0.0f;
@@ -71,4 +77,9 @@ void Player::update(float _fDeltaTime)
 
 	if (m_iCurrTaskIndex == 1 && fabsf(m_rigidBodies.back()->GetLinearVelocity().y) < 0.01f && m_rigidBodies.back()->GetContactList() != nullptr)
 		IActor::setCurrState(0);
+}
+
+void Player::respawn()
+{
+	setPosition(m_spawnPos.x, m_spawnPos.y);
 }

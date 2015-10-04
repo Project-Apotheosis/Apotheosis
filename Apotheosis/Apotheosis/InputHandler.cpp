@@ -84,10 +84,6 @@ bool InputHandler::handleShoot(UINT _iPlayerID, float _fDeltaTime)
 bool InputHandler::handleJump(UINT _iPlayerID, float _fDeltaTime)
 {
 	m_inputTimers[_iPlayerID].first += _fDeltaTime;
-	//static float s_fLastHandle = 0.0f;
-	//static float s_fTimeElapsed = 0.0f;
-
-	//s_fTimeElapsed += _fDeltaTime;
 
 	if (m_inputTimers[_iPlayerID].first - m_inputTimers[_iPlayerID].second > 1.2f)
 	{
@@ -184,6 +180,21 @@ bool InputHandler::handleGeneralButton(UINT _iPlayerID, E_GAMEPAD_BUTTON _eButto
 	return false;
 }
 
+bool InputHandler::handleGeneralKB(char _cButton, float _fDeltaTime)
+{
+	static float s_fLastHandle = 0.0f;
+	static float s_fTimeElapsed = 0.0f;
+
+	s_fTimeElapsed += _fDeltaTime;
+
+	if (s_fTimeElapsed > 0.3f && m_pDinput->isKeyDown(_cButton))
+	{
+		s_fTimeElapsed = 0.0f;
+		return true;
+	}
+	return false;
+}
+
 bool InputHandler::handleMouseClick(int _iMouseButtonIndex, float _fDeltaTime, pair<float, float>& _rMousePos)
 {
 	static float s_fLastHandle = 0.0f;
@@ -219,8 +230,7 @@ float InputHandler::mouseScreenCoordY()
 	POINT p;
 	GetCursorPos(&p);
 	ScreenToClient(m_pDinput->getWindowHandle(), &p);
-	//stringstream _ss; _ss << (float)p.x / 1585.0f << "\n";
-	//OutputDebugStringA(&_ss.str()[0]);
+
 	if (p.x > SCREEN_WIDTH_WINDOWED || p.x < 0 || p.y > SCREEN_HEIGHT_WINDOWED || p.y < 0)  //TODO: Remove hard-coded screen size numebrs
 		return 0.0f;
 	return ((float)p.y / -SCREEN_HEIGHT_WINDOWED) * 2 + 1;

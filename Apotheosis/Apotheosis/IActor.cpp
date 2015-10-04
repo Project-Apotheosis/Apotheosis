@@ -54,27 +54,9 @@ void IActor::initializeRendering(const string& _rkTexture, const string& _rkSuff
 	m_renderTasks.back().iSpriteCount = _kiSpriteCount;
 	m_renderTasks.back().fAnimRate = m_fAnimRate;
 
-	//m_textureAnimQueues.back().push(m_renderTasks.back().textures[0]);
+
 }
-//
-//void IActor::addTexture(const string& _rkTexture)
-//{
-//	//Iterate through all possible texture slots on render task
-//	for (UINT i = 0; i < T_MAX; i++)
-//	{
-//		//Find empty slot
-//		if (m_renderTasks.back().textures[i] == nullptr)
-//		{
-//			//Load the texture
-//			DX10Renderer::createTexture(_rkTexture, &m_renderTasks.back().textures[i]);
-//			//Add the texture to the animation queue
-//			m_textureAnimQueues.back().push(m_renderTasks.back().textures[i]);
-//			return;
-//		}
-//
-//	}
-//	assert(false && "Too many textures added to this IActor.");
-//}
+
 
 void IActor::setCurrState(UINT _iIndex)
 {
@@ -89,19 +71,6 @@ void IActor::setCurrState(UINT _iIndex)
 			m_renderTasks[i].rendering = false;
 	}
 }
-//
-//void IActor::animate(float _fDeltaTime)
-//{
-//	m_fLastAnim += _fDeltaTime;
-//	if (m_fLastAnim > m_fAnimRate)
-//	{
-//		m_fLastAnim = 0.0f;
-//		ID3D10ShaderResourceView* _pTemp = m_textureAnimQueues[m_iCurrTaskIndex].front();
-//		m_textureAnimQueues[m_iCurrTaskIndex].pop();
-//		m_textureAnimQueues[m_iCurrTaskIndex].push(_pTemp);
-//		m_renderTasks[m_iCurrTaskIndex].textures[T_DIFFUSE] = m_textureAnimQueues[m_iCurrTaskIndex].front();
-//	}
-//}
 
 
 void IActor::setActive(bool _bActive)
@@ -121,4 +90,12 @@ b2Vec2 IActor::getPosition()
 	_return.x = m_transform.translation.x;
 	_return.y = m_transform.translation.y;
 	return _return;
+}
+
+void IActor::setPosition(float _fX, float _fY)
+{
+	m_rigidBodies.back()->SetTransform(b2Vec2(_fX, _fY), m_rigidBodies.back()->GetAngle());
+	m_transform.translation.x = _fX;
+	m_transform.translation.y = _fY;
+	m_renderTasks[m_iCurrTaskIndex].transformMtx = *m_transform.matrix();
 }

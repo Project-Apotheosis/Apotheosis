@@ -17,13 +17,20 @@
 #include "pugixml.hpp"
 #include "Util.h"
 #include "IGameScene.h"
+#include "Player.h"
 
+struct SceneContainer
+{
+
+	array<Platform, 10>& rPlatforms;
+	array<Player, 4 >& rPlayers;
+};
 
 class LevelLoader
 {
 public:
 
-	static void fromXML(const string& _rkXMLFileName, array<Platform, 10>& _rPlatforms)
+	static void fromXML(const string& _rkXMLFileName, SceneContainer&& _scene)
 	{
 		pugi::xml_document doc;
 		pugi::xml_parse_result result = doc.load_file(_rkXMLFileName.c_str());
@@ -37,15 +44,36 @@ public:
 			UINT i = 0;
 			for (pugi::xml_node platform = _platforms.first_child(); platform; platform = platform.next_sibling())
 			{
-				if (i >= _rPlatforms.size())
+				if (i >= _scene.rPlatforms.size())
 					break;
 
-				_rPlatforms[i].setActive(true);
-				_rPlatforms[i].setPosition(nodePositionX(platform), nodePositionY(platform));
+				_scene.rPlatforms[i].setActive(true);
+				_scene.rPlatforms[i].setPosition(nodePositionX(platform), nodePositionY(platform));
 				pugi::xml_node _rotation = platform.child("Rotation");
 				if (_rotation)
-					_rPlatforms[i].setRotation(_rotation.text().as_float());
+					_scene.rPlatforms[i].setRotation(_rotation.text().as_float());
 				i++;
+			}
+		}
+
+		//Player spawns
+		pugi::xml_node _spawns = _levelNode.child("PlayerSpawns");
+		if (_spawns)
+		{
+			UINT i = 0;
+			for (pugi::xml_node spawn = _spawns.first_child(); spawn; spawn = spawn.next_sibling())
+			{
+				assert(i < 4 && "There is no fifth player, you noob, XML.");
+
+				_scene.rPlayers[i].setSpawnPosition(nodePositionX(spawn), nodePositionY(spawn));
+				i++;
+			}
+		}
+		else //No spawns, set spawns to default
+		{
+			for (int i = 0; i < 4; ++i)
+			{
+				_scene.rPlayers[i].setSpawnPosition(-17.0f + i* 5.0f, 0.0f);
 			}
 		}
 
@@ -74,7 +102,7 @@ public:
 	}
 
 
-	static void toXML(const string& _rkXMLFileName, array<Platform,10>& _rPlatforms)
+	static void toXML(const string& _rkXMLFileName, SceneContainer _scene)
 	{
 		pugi::xml_document doc;
 
@@ -91,21 +119,38 @@ public:
 		pugi::xml_node _platforms = _level.child("Platforms");
 
 		//Create the nodes 
-		for (int i = _rPlatforms.size() - 1; i >= 0; i--)
+		for (int i = _scene.rPlatforms.size() - 1; i >= 0; i--)
 		{
-			if (!_rPlatforms[i].isActive())
+			if (!_scene.rPlatforms[i].isActive())
 				break;
 
 			_platforms.append_child().set_name("Platform");
 		}
 		//Create the positions for each new node
-		UINT j = _rPlatforms.size() - 1;
+		UINT j = _scene.rPlatforms.size() - 1;
 		for (pugi::xml_node newNode = _platforms.first_child(); newNode; newNode = newNode.next_sibling())
 		{
-			setNodePos(newNode, _rPlatforms[j].getPosition());
+			setNodePos(newNode, _scene.rPlatforms[j].getPosition());
 			j--;
 		}
 		
+
+		//Player spawns
+		_level.append_child().set_name("PlayerSpawns");
+		pugi::xml_node _spawns = _level.child("PlayerSpawns");
+
+		//Create the nodes
+		for (int i = 0; i < 4; ++i)
+			_spawns.append_child().set_name("Spawn");
+		
+		//Create the positions for each spawn node
+		UINT k = 0;
+		for (pugi::xml_node newNode = _spawns.first_child(); newNode; newNode = newNode.next_sibling())
+		{
+			setNodePos(newNode, _scene.rPlayers[k].getSpawnPosition());
+			k++;
+		}
+			
 
 		doc.save_file((_rkXMLFileName).c_str());
 

@@ -18,6 +18,9 @@ public:
 
 protected: //Data
 
+	//Used via callbacks for buttons
+	bool m_bSceneEnding{};
+	E_SCENE m_nextSceneSelected = S_GAMEPLAY;
 
 
 public: //Interface

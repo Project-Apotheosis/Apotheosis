@@ -4,64 +4,78 @@
 		<Platforms>
 			<Platform>
 				<Position>
-					<X>1.2</X>
-					<Y>33.8667</Y>
+					<X>-29.6</X>
+					<Y>23.3333</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-25.6</X>
-					<Y>22</Y>
+					<X>25.1</X>
+					<Y>-10.8</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-32.2</X>
-					<Y>-13.6</Y>
+					<X>-20.3</X>
+					<Y>-16.6667</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-30.8</X>
-					<Y>-18.1333</Y>
+					<X>-0.699999</X>
+					<Y>-10.5333</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-31.5</X>
-					<Y>-23.7333</Y>
+					<X>-30.2</X>
+					<Y>-13.4667</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
 					<X>-28.8</X>
-					<Y>-27.6</Y>
+					<Y>-28.5333</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-10.1</X>
-					<Y>-14.1333</Y>
+					<X>-30.2</X>
+					<Y>-13.4667</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>3.3</X>
-					<Y>-25.7333</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>22.3</X>
-					<Y>12.1333</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>32.1</X>
-					<Y>-24.2667</Y>
+					<X>-28.8</X>
+					<Y>-28.5333</Y>
 				</Position>
 			</Platform>
 		</Platforms>
+		<PlayerSpawns>
+			<Spawn>
+				<Position>
+					<X>-20</X>
+					<Y>30.1333</Y>
+				</Position>
+			</Spawn>
+			<Spawn>
+				<Position>
+					<X>-13</X>
+					<Y>30.4</Y>
+				</Position>
+			</Spawn>
+			<Spawn>
+				<Position>
+					<X>11.4</X>
+					<Y>28.9333</Y>
+				</Position>
+			</Spawn>
+			<Spawn>
+				<Position>
+					<X>24.5</X>
+					<Y>28.2667</Y>
+				</Position>
+			</Spawn>
+		</PlayerSpawns>
 	</Level>
 </Profile>

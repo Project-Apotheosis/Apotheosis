@@ -108,9 +108,6 @@ void GameRoot::createScene() //AB: Object Ordering
 void GameRoot::update(float _fDeltaTime)
 {
 	InputHandler::getInstance()->update();
-	
-
-
 
 	m_scenes[m_eCurrentScene]->update(_fDeltaTime);
 
