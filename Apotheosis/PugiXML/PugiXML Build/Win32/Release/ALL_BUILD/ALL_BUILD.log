@@ -1,0 +1,10 @@
+﻿Build started 13/09/2015 1:39:25 p.m..
+     1>Project "F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\ALL_BUILD.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Building Custom Rule F:/Current/CURRENT/DX10 Tyro/PugiXML/pugixml-1.6/scripts/CMakeLists.txt
+         CMake does not need to re-run because F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\CMakeFiles\generate.stamp is up-to-date.
+     1>Done Building Project "F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\ALL_BUILD.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.35

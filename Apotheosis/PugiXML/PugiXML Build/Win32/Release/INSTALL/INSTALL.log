@@ -1,0 +1,25 @@
+﻿Build started 13/09/2015 1:39:30 p.m..
+     1>Project "F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\INSTALL.vcxproj" on node 2 (Build target(s)).
+     1>PostBuildEvent:
+         setlocal
+         "D:\Program Files (x86)\CMake\bin\cmake.exe" -DBUILD_TYPE=Release -P cmake_install.cmake
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         :VCEnd
+         -- Install configuration: "Release"
+         -- Installing: C:/Program Files (x86)/pugixml/lib/pugixml.lib
+         -- Up-to-date: C:/Program Files (x86)/pugixml/include/pugixml.hpp
+         -- Up-to-date: C:/Program Files (x86)/pugixml/include/pugiconfig.hpp
+         -- Old export file "C:/Program Files (x86)/pugixml/lib/cmake/pugixml/pugixml-config.cmake" will be replaced.  Removing files [C:/Program Files (x86)/pugixml/lib/cmake/pugixml/pugixml-config-debug.cmake;C:/Program Files (x86)/pugixml/lib/cmake/pugixml/pugixml-config-release.cmake].
+         -- Installing: C:/Program Files (x86)/pugixml/lib/cmake/pugixml/pugixml-config.cmake
+         -- Installing: C:/Program Files (x86)/pugixml/lib/cmake/pugixml/pugixml-config-release.cmake
+     1>Done Building Project "F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\INSTALL.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.65

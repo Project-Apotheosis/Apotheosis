@@ -57,6 +57,7 @@ void InputHandler::shutDown()
 	delete s_pInstance;
 }
 
+
 /**
 *	Handle shooting in game
 *	@author Serge Radinovich
@@ -83,18 +84,36 @@ bool InputHandler::handleShoot(UINT _iPlayerID, float _fDeltaTime)
 
 bool InputHandler::handleJump(UINT _iPlayerID, float _fDeltaTime)
 {
-	m_inputTimers[_iPlayerID].first += _fDeltaTime;
+	m_inputTimersJump[_iPlayerID].first += _fDeltaTime;
 
-	if (m_inputTimers[_iPlayerID].first - m_inputTimers[_iPlayerID].second > 1.2f)
+	if (m_inputTimersJump[_iPlayerID].first - m_inputTimersJump[_iPlayerID].second > 0.56f)
 	{
 		if (m_pGamePads[_iPlayerID]->getButtonPressed(E_GAMEPAD_BUTTON::GB_A) /*|| m_pDinput->isKeyDown(DIK_SPACE)*/)
 		{
-			m_inputTimers[_iPlayerID].second = m_inputTimers[_iPlayerID].first;
+			m_inputTimersJump[_iPlayerID].second = m_inputTimersJump[_iPlayerID].first;
 			return true;
 		}
 	}
 	return false;
 }
+
+
+bool InputHandler::handleAttack(UINT _iPlayerID, float _fDeltaTime)
+{
+	m_inputTimersAttack[_iPlayerID].first += _fDeltaTime;
+
+	if (m_inputTimersAttack[_iPlayerID].first - m_inputTimersAttack[_iPlayerID].second > 1.0f)
+	{
+		if (m_pGamePads[_iPlayerID]->getButtonPressed(E_GAMEPAD_BUTTON::GB_X))
+		{
+			m_inputTimersAttack[_iPlayerID].second = m_inputTimersAttack[_iPlayerID].first;
+			return true;
+		}
+	}
+	return false;
+}
+
+
 /**
 *	Handle Object translation
 *	@author Serge Radinovich
@@ -105,10 +124,9 @@ bool InputHandler::handleJump(UINT _iPlayerID, float _fDeltaTime)
 bool InputHandler::handleObjectTranslation(UINT _iPlayerID, D3DXVECTOR2& _rTranslate, float _fDeltaTime)
 {
 
-	m_inputTimers[_iPlayerID].first += _fDeltaTime;
+	m_inputTimersMove[_iPlayerID].first += _fDeltaTime;
 
-
-	if (m_inputTimers[_iPlayerID].first - m_inputTimers[_iPlayerID].second > 0.1f)
+	if (m_inputTimersMove[_iPlayerID].first - m_inputTimersMove[_iPlayerID].second > 0.1f)
 	{
 
 		bool _bMoveHandled = false;
@@ -139,7 +157,7 @@ bool InputHandler::handleObjectTranslation(UINT _iPlayerID, D3DXVECTOR2& _rTrans
 
 		if (_bMoveHandled)
 		{
-			m_inputTimers[_iPlayerID].second = m_inputTimers[_iPlayerID].first;
+			m_inputTimersMove[_iPlayerID].second = m_inputTimersMove[_iPlayerID].first;
 			D3DXVec2Normalize(&_rTranslate, &_rTranslate);
 			return true;
 		}

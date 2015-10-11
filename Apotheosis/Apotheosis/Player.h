@@ -6,6 +6,9 @@
 
 class Player : public IActor
 {
+
+	enum PlayerDirection : int { left = -1, right = 1};
+
 public: //Construction
 
 	Player();
@@ -19,6 +22,11 @@ private: //Data
 
 	D3DXVECTOR3 m_spawnPos; //Manipulated through GameplayScene
 
+	PlayerDirection m_currentDirection = PlayerDirection::right;
+
+	static float s_kfAttackAnimTime;
+	float m_fAttackAnimTick = s_kfAttackAnimTime;
+	
 public: //Interface
 
 	static UINT playerCount(){ return s_iPlayerCount; }
@@ -31,6 +39,13 @@ public: //Interface
 	void setSpawnPosition(float _fX, float _fY) { m_spawnPos.x = _fX; m_spawnPos.y = _fY; }
 
 	void respawn();
+
+private: //Internals
+
+	void updateTransform();
+	void updateAnimations();
+	void handleInput(float _fDeltaTime);
+
 };
 
 #endif //__PLAYER_H__

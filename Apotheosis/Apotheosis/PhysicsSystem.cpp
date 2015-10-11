@@ -5,7 +5,7 @@ PhysicsSystem* PhysicsSystem::s_pInstance = nullptr; ///Singleton pointer
 
 
 PhysicsSystem::PhysicsSystem()
-	:m_world(b2Vec2(0.0f, -10.0f)) //Construct the world with gravity
+	:m_world(b2Vec2(0.0f, -130.0f)) //Construct the world with gravity
 {
 
 }

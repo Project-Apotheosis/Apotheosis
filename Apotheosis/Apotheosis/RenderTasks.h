@@ -106,6 +106,8 @@ struct RenderTaskShaded
 
 		D3DXMATRIX		transformMtx;
 
+		//UV inversion for left / right facing
+		bool bDefaultUVs{ true };
 
 	};
 

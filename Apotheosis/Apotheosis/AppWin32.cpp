@@ -96,7 +96,7 @@
 			PostQuitMessage(0);
 		}
 
-		m_hWnd = CreateWindowW(L"D3DWndClassName", L"Probotron", WS_BORDER, 0, 0, _pInitializer->iWidth, _pInitializer->iHeight, 0, 0, _hInst, 0);
+		m_hWnd = CreateWindowW(L"D3DWndClassName", L"Apotheosis", WS_BORDER, 0, 0, _pInitializer->iWidth, _pInitializer->iHeight, 0, 0, _hInst, 0);
 
 
 		if (!m_hWnd)

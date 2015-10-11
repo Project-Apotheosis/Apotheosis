@@ -22,7 +22,7 @@
 struct SceneContainer
 {
 
-	array<Platform, 10>& rPlatforms;
+	array<Platform, 50>& rPlatforms;
 	array<Player, 4 >& rPlayers;
 };
 

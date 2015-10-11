@@ -17,10 +17,10 @@ void GameplayScene::init()
 {
 
 	for (UINT i = 0; i < m_platforms.size(); ++i)
-		m_platforms[i].init(b2Vec2(-25.0f + 10.0f*i, -2.0f), 3.0f, 1.0f);
+		m_platforms[i].init(b2Vec2(-25.0f + 10.0f*i, -2.0f), 3.0f, 3.0f);
 
 	for (UINT i = 0; i < m_players.size(); ++i)
-		m_players[i].init(b2Vec2(-2.0f + 2.0f*i, 5.0f), 1.0f, 1.0f);
+		m_players[i].init(b2Vec2(-2.0f + 2.0f*i, 5.0f), 2.0f, 2.0f);
 
 }
 

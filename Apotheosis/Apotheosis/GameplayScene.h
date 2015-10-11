@@ -22,7 +22,7 @@ private: //Data
 
 	bool m_bSaveLevelOnExit{};
 
-	array<Platform, 10> m_platforms;
+	array<Platform, 50> m_platforms;
 
 	UINT m_iInactivePlatformCount{}; //Set from loading xml
 

@@ -49,7 +49,9 @@ public: //Interface
 private: //Data
 
 	array<XInputManager*, 4> m_pGamePads{}; //Xbox 360 controller
-	array<pair<float, float>, 4> m_inputTimers{};
+	array<pair<float, float>, 4> m_inputTimersJump{};
+	array<pair<float, float>, 4> m_inputTimersMove{};
+	array<pair<float, float>, 4> m_inputTimersAttack{};
 	D3DInputManager* m_pDinput{};
 
 public: //Interface
@@ -58,6 +60,7 @@ public: //Interface
 	bool handleObjectTranslation(UINT _iPlayerID, D3DXVECTOR2& _rTranslate, float _fDeltaTime);
 	bool handleJump(UINT _iPlayerID, float _fDeltaTime);
 	bool handleShoot(UINT _iPlayerID, float _fDeltaTime);
+	bool handleAttack(UINT _iPlayerID, float _fDeltaTime);
 
 	bool handleGeneralButton(UINT _iPlayerID, E_GAMEPAD_BUTTON _eButtonRequested, float _fDeltaTime);
 	bool handleGeneralKB(char _cButton, float _fDeltaTime);

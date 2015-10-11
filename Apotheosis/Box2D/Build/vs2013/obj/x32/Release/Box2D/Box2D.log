@@ -1,0 +1,104 @@
+﻿Build started 17/08/2015 5:51:21 p.m..
+     1>Project "F:\Sem2\Apotheosis\Apotheosis\Box2D\Build\vs2013\Box2D.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\.. /I"C:\Program Files (x86)\Visual Leak Detector\include" /Zi /nologo /W3 /WX- /Ox /Oy- /D _CRT_SECURE_NO_WARNINGS /D NDEBUG /D _MBCS /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\x32\Release\Box2D\\" /Fd"bin\x32\Release\Box2D.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Box2D\Collision\Shapes\b2ChainShape.cpp ..\..\Box2D\Collision\Shapes\b2CircleShape.cpp ..\..\Box2D\Collision\Shapes\b2EdgeShape.cpp ..\..\Box2D\Collision\Shapes\b2PolygonShape.cpp ..\..\Box2D\Collision\b2BroadPhase.cpp ..\..\Box2D\Collision\b2CollideCircle.cpp ..\..\Box2D\Collision\b2CollideEdge.cpp ..\..\Box2D\Collision\b2CollidePolygon.cpp ..\..\Box2D\Collision\b2Collision.cpp ..\..\Box2D\Collision\b2Distance.cpp ..\..\Box2D\Collision\b2DynamicTree.cpp ..\..\Box2D\Collision\b2TimeOfImpact.cpp ..\..\Box2D\Common\b2BlockAllocator.cpp ..\..\Box2D\Common\b2Draw.cpp ..\..\Box2D\Common\b2Math.cpp ..\..\Box2D\Common\b2Settings.cpp ..\..\Box2D\Common\b2StackAllocator.cpp ..\..\Box2D\Common\b2Timer.cpp ..\..\Box2D\Dynamics\Contacts\b2ChainAndCircleContact.cpp ..\..\Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.cpp ..\..\Box2D\Dynamics\Contacts\b2CircleContact.cpp ..\..\Box2D\Dynamics\Contacts\b2Contact.cpp ..\..\Box2D\Dynamics\Contacts\b2ContactSolver.cpp ..\..\Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.cpp ..\..\Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.cpp ..\..\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp ..\..\Box2D\Dynamics\Contacts\b2PolygonContact.cpp ..\..\Box2D\Dynamics\Joints\b2DistanceJoint.cpp ..\..\Box2D\Dynamics\Joints\b2FrictionJoint.cpp ..\..\Box2D\Dynamics\Joints\b2GearJoint.cpp ..\..\Box2D\Dynamics\Joints\b2Joint.cpp ..\..\Box2D\Dynamics\Joints\b2MotorJoint.cpp ..\..\Box2D\Dynamics\Joints\b2MouseJoint.cpp ..\..\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp ..\..\Box2D\Dynamics\Joints\b2PulleyJoint.cpp ..\..\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp ..\..\Box2D\Dynamics\Joints\b2RopeJoint.cpp ..\..\Box2D\Dynamics\Joints\b2WeldJoint.cpp ..\..\Box2D\Dynamics\Joints\b2WheelJoint.cpp ..\..\Box2D\Dynamics\b2Body.cpp ..\..\Box2D\Dynamics\b2ContactManager.cpp ..\..\Box2D\Dynamics\b2Fixture.cpp ..\..\Box2D\Dynamics\b2Island.cpp ..\..\Box2D\Dynamics\b2World.cpp ..\..\Box2D\Dynamics\b2WorldCallbacks.cpp
+         b2ChainShape.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\Shapes\b2ChainShape.cpp': No such file or directory
+         b2CircleShape.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\Shapes\b2CircleShape.cpp': No such file or directory
+         b2EdgeShape.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\Shapes\b2EdgeShape.cpp': No such file or directory
+         b2PolygonShape.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\Shapes\b2PolygonShape.cpp': No such file or directory
+         b2BroadPhase.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\b2BroadPhase.cpp': No such file or directory
+         b2CollideCircle.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\b2CollideCircle.cpp': No such file or directory
+         b2CollideEdge.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\b2CollideEdge.cpp': No such file or directory
+         b2CollidePolygon.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\b2CollidePolygon.cpp': No such file or directory
+         b2Collision.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\b2Collision.cpp': No such file or directory
+         b2Distance.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\b2Distance.cpp': No such file or directory
+         b2DynamicTree.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\b2DynamicTree.cpp': No such file or directory
+         b2TimeOfImpact.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Collision\b2TimeOfImpact.cpp': No such file or directory
+         b2BlockAllocator.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Common\b2BlockAllocator.cpp': No such file or directory
+         b2Draw.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Common\b2Draw.cpp': No such file or directory
+         b2Math.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Common\b2Math.cpp': No such file or directory
+         b2Settings.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Common\b2Settings.cpp': No such file or directory
+         b2StackAllocator.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Common\b2StackAllocator.cpp': No such file or directory
+         b2Timer.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Common\b2Timer.cpp': No such file or directory
+         b2ChainAndCircleContact.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Contacts\b2ChainAndCircleContact.cpp': No such file or directory
+         b2ChainAndPolygonContact.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.cpp': No such file or directory
+         Generating Code...
+         Compiling...
+         b2CircleContact.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Contacts\b2CircleContact.cpp': No such file or directory
+         b2Contact.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Contacts\b2Contact.cpp': No such file or directory
+         b2ContactSolver.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Contacts\b2ContactSolver.cpp': No such file or directory
+         b2EdgeAndCircleContact.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.cpp': No such file or directory
+         b2EdgeAndPolygonContact.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.cpp': No such file or directory
+         b2PolygonAndCircleContact.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp': No such file or directory
+         b2PolygonContact.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Contacts\b2PolygonContact.cpp': No such file or directory
+         b2DistanceJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2DistanceJoint.cpp': No such file or directory
+         b2FrictionJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2FrictionJoint.cpp': No such file or directory
+         b2GearJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2GearJoint.cpp': No such file or directory
+         b2Joint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2Joint.cpp': No such file or directory
+         b2MotorJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2MotorJoint.cpp': No such file or directory
+         b2MouseJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2MouseJoint.cpp': No such file or directory
+         b2PrismaticJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp': No such file or directory
+         b2PulleyJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2PulleyJoint.cpp': No such file or directory
+         b2RevoluteJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp': No such file or directory
+         b2RopeJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2RopeJoint.cpp': No such file or directory
+         b2WeldJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2WeldJoint.cpp': No such file or directory
+         b2WheelJoint.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\Joints\b2WheelJoint.cpp': No such file or directory
+         b2Body.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\b2Body.cpp': No such file or directory
+         Generating Code...
+         Compiling...
+         b2ContactManager.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\b2ContactManager.cpp': No such file or directory
+         b2Fixture.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\b2Fixture.cpp': No such file or directory
+         b2Island.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\b2Island.cpp': No such file or directory
+         b2World.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\b2World.cpp': No such file or directory
+         b2WorldCallbacks.cpp
+     1>c1xx : fatal error C1083: Cannot open source file: '..\..\Box2D\Dynamics\b2WorldCallbacks.cpp': No such file or directory
+         Generating Code...
+     1>Done Building Project "F:\Sem2\Apotheosis\Apotheosis\Box2D\Build\vs2013\Box2D.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.98

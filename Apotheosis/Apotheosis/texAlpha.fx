@@ -18,6 +18,8 @@ struct SurfaceInfo
 	float4 spec;
 };
 
+bool gDefaultUVs;
+
 float3 ParallelLight(SurfaceInfo v, Light L, float3 eyePos)
 {
 	float3 litColor = float3(0.0f, 0.0f, 0.0f);
@@ -53,7 +55,7 @@ float3 ParallelLight(SurfaceInfo v, Light L, float3 eyePos)
 BlendState gBlend
 {
 	BlendEnable[0] = TRUE;
-	SrcBlend = SRC_COLOR;
+	SrcBlend = ONE;
 	DestBlend = INV_SRC_ALPHA;
 	BlendOp = ADD;
 	SrcBlendAlpha = ZERO;
@@ -122,7 +124,10 @@ VS_OUT VS(VS_IN vIn)
 	//vOut.texC0  = vIn.texC;
 	//vOut.texC1  = mul(float4(vIn.texC, 0.0f, 1.0f), gTexMtx);
 	vOut.texC = vIn.texC;
-	
+	if (!gDefaultUVs)
+	{
+		vOut.texC.x = 1.0f - vOut.texC.x;
+	}
 	return vOut;
 }
 

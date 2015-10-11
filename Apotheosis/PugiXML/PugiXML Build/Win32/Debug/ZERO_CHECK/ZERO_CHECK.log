@@ -1,0 +1,10 @@
+﻿Build started 13/09/2015 1:39:19 p.m..
+     1>Project "F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\ZERO_CHECK.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Checking Build System
+         CMake does not need to re-run because F:/Sem2/PHYSICS/2DPhysicsProject/2DPhysicsProject/PugiXML/PugiXML Build/CMakeFiles/generate.stamp is up-to-date.
+     1>Done Building Project "F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\ZERO_CHECK.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.28

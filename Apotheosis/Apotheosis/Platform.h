@@ -15,7 +15,6 @@ public: //Construction
 	{
 	}
 
-
 private: //Data
 
 
@@ -23,7 +22,7 @@ public: //Interface
 
 	void init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY) override
 	{
-		IActor::initializeRendering("platform", ".dds", 1, "texAlpha.fx", "TexAlphaTech", _fDimX, _fDimY);
+		IActor::initializeRendering("ApotheosisGroundTile", ".png", 1, "texAlpha.fx", "TexAlphaTech", _fDimX, _fDimY);
 
 		m_rigidBodies.push_back(PhysicsSystem::createBody(b2BodyType::b2_staticBody, _rkPosition));
 
@@ -45,8 +44,7 @@ public: //Interface
 	
 	void update(float _fDeltaTime) override
 	{
-		//float _fAngle = m_rigidBodies.back()->GetAngle();
-		
+		//float _fAngle = m_rigidBodies.back()->GetAngle();		
 	}
 
 

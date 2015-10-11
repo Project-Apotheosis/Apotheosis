@@ -538,6 +538,8 @@
 			_kpRenderTask->pFXAnimRateVar->AsScalar()->SetFloat(_kpRenderTask->fAnimRate);
 			_kpRenderTask->pFXSpriteCountVar->AsScalar()->SetFloat(_kpRenderTask->iSpriteCount);
 
+			_kpRenderTask->pFX->GetVariableByName("gDefaultUVs")->AsScalar()->SetBool(_kpRenderTask->bDefaultUVs);
+
 			//if (_kpRenderTask->textures[T_DIFFUSE])
 			//{
 			//	_kpRenderTask->pFXDiffuseMapVar->AsShaderResource()->SetResource(_kpRenderTask->textures[T_DIFFUSE]);

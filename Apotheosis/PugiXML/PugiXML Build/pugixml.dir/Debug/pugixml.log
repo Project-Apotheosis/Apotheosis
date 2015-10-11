@@ -1,0 +1,16 @@
+﻿Build started 13/09/2015 1:39:19 p.m..
+     1>Project "F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\pugixml.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Building Custom Rule F:/Current/CURRENT/DX10 Tyro/PugiXML/pugixml-1.6/scripts/CMakeLists.txt
+         CMake does not need to re-run because F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Visual Leak Detector\include" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"pugixml.dir\Debug\\" /Fd"pugixml.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "F:\Current\CURRENT\DX10 Tyro\PugiXML\pugixml-1.6\src\pugixml.cpp"
+         pugixml.cpp
+       Lib:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\Debug\pugixml.lib" /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" /NOLOGO pugixml.dir\Debug\pugixml.obj
+         pugixml.vcxproj -> F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\Debug\pugixml.lib
+     1>Done Building Project "F:\Sem2\PHYSICS\2DPhysicsProject\2DPhysicsProject\PugiXML\PugiXML Build\pugixml.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.06
