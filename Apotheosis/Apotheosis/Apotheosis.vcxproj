@@ -121,7 +121,6 @@
     <ClInclude Include="IActor.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="IRoot.h" />
-    <ClInclude Include="Light.h" />
     <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
