@@ -98,6 +98,30 @@ bool InputHandler::handleJump(UINT _iPlayerID, float _fDeltaTime)
 }
 
 
+bool InputHandler::handleDash(UINT _iPlayerID, float _fDeltaTime, int& _rOutDirection)
+{
+	_rOutDirection = 0;
+	m_inputTimersDash[_iPlayerID].first += _fDeltaTime;
+
+	if (m_inputTimersDash[_iPlayerID].first - m_inputTimersDash[_iPlayerID].second > 0.5f)
+	{
+		
+		if (m_pGamePads[_iPlayerID]->getButtonPressed(E_GAMEPAD_BUTTON::GB_L_SHOULDER))
+		{
+			m_inputTimersDash[_iPlayerID].second = m_inputTimersDash[_iPlayerID].first;
+			_rOutDirection = -1;
+			return true;
+		}
+		else if (m_pGamePads[_iPlayerID]->getButtonPressed(E_GAMEPAD_BUTTON::GB_R_SHOULDER))
+		{
+			m_inputTimersDash[_iPlayerID].second = m_inputTimersDash[_iPlayerID].first;
+			_rOutDirection = 1;
+			return true;
+		}
+	}
+	return false;
+}
+
 bool InputHandler::handleAttack(UINT _iPlayerID, float _fDeltaTime)
 {
 	m_inputTimersAttack[_iPlayerID].first += _fDeltaTime;

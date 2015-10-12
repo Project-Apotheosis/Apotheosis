@@ -75,8 +75,6 @@ bool GameRoot::init()
 			m_scenes[i]->setActive(false);
 	}
 
-
-
 	return true;
 }
 

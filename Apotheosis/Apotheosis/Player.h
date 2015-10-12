@@ -3,6 +3,7 @@
 
 #include "IActor.h"
 #include "InputHandler.h"
+#include <functional>
 
 class Player : public IActor
 {
@@ -24,14 +25,22 @@ private: //Data
 
 	PlayerDirection m_currentDirection = PlayerDirection::right;
 
+	//Attack timing
 	static float s_kfAttackAnimTime;
 	float m_fAttackAnimTick = s_kfAttackAnimTime;
+	//Dash timing
+	static float s_kfDashAnimTime;
+	float m_fDashAnimTick = s_kfDashAnimTime;
+
+	function<void(const Player&)> m_attackCallback;
 	
 public: //Interface
 
+	UINT getPlayerID() const { return m_iPlayerID; }
+
 	static UINT playerCount(){ return s_iPlayerCount; }
 
-	void init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY) override;
+	void init(function<void(const Player&)> _callback, const b2Vec2& _rkPosition, float _fDimX, float _fDimY);
 
 	void update(float _fDeltaTime) override;
 

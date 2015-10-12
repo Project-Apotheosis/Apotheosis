@@ -52,6 +52,7 @@ private: //Data
 	array<pair<float, float>, 4> m_inputTimersJump{};
 	array<pair<float, float>, 4> m_inputTimersMove{};
 	array<pair<float, float>, 4> m_inputTimersAttack{};
+	array<pair<float, float>, 4> m_inputTimersDash{};
 	D3DInputManager* m_pDinput{};
 
 public: //Interface
@@ -61,7 +62,7 @@ public: //Interface
 	bool handleJump(UINT _iPlayerID, float _fDeltaTime);
 	bool handleShoot(UINT _iPlayerID, float _fDeltaTime);
 	bool handleAttack(UINT _iPlayerID, float _fDeltaTime);
-
+	bool handleDash(UINT _iPlayerID, float _fDeltaTime, int& _rOutDirection);
 	bool handleGeneralButton(UINT _iPlayerID, E_GAMEPAD_BUTTON _eButtonRequested, float _fDeltaTime);
 	bool handleGeneralKB(char _cButton, float _fDeltaTime);
 
@@ -70,8 +71,9 @@ public: //Interface
 	void update();
 
 	float mouseScreenCoordX();
-
 	float mouseScreenCoordY();
+
+
 };
 
 #endif //__INPUT_HANDLER_H__

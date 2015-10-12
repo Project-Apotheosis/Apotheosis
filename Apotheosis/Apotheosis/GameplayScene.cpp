@@ -20,7 +20,7 @@ void GameplayScene::init()
 		m_platforms[i].init(b2Vec2(-25.0f + 10.0f*i, -2.0f), 3.0f, 3.0f);
 
 	for (UINT i = 0; i < m_players.size(); ++i)
-		m_players[i].init(b2Vec2(-2.0f + 2.0f*i, 5.0f), 2.0f, 2.0f);
+		m_players[i].init([&](const Player& _rkPlayer){this->playerAttackCallback(_rkPlayer); }, b2Vec2(-2.0f + 2.0f*i, 5.0f), 2.0f, 2.0f);
 
 }
 
@@ -158,4 +158,22 @@ bool GameplayScene::sceneEnding(E_SCENE& _reNextScene)
 		return true;
 	}
 	return false;
+}
+
+
+void GameplayScene::playerAttackCallback(const Player& _rkAttackingPlayer)
+{
+	for (auto& rPlayerAttacked : m_players)
+	{
+		if (rPlayerAttacked.getPlayerID() != _rkAttackingPlayer.getPlayerID())
+		{
+			b2Vec2 distVec = rPlayerAttacked.getPosition() - _rkAttackingPlayer.getPosition();
+			if (distVec.LengthSquared() < 30.0f)
+			{
+				
+				rPlayerAttacked.respawn();
+				return;
+			}
+		}
+	}
 }

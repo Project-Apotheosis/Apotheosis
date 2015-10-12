@@ -4,20 +4,32 @@
 		<Platforms>
 			<Platform>
 				<Position>
+					<X>-16.1</X>
+					<Y>8.26667</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-22.5</X>
+					<Y>16.6667</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-14.6</X>
+					<Y>-7.33333</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>8.5</X>
+					<Y>-7.86667</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
 					<X>-31.7</X>
 					<Y>25.7333</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>-19</X>
-					<Y>-16.6667</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>0.4</X>
-					<Y>-1.6</Y>
 				</Position>
 			</Platform>
 			<Platform>
@@ -34,44 +46,14 @@
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-30.7</X>
-					<Y>-26.5333</Y>
+					<X>-19</X>
+					<Y>-16.6667</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>29.3</X>
-					<Y>24.1333</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>15.4</X>
-					<Y>-15.8667</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>9.6</X>
-					<Y>-7.6</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>-14.6</X>
-					<Y>-7.33333</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>-22.5</X>
-					<Y>16.6667</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>-16.1</X>
-					<Y>8.26667</Y>
+					<X>0.4</X>
+					<Y>-1.6</Y>
 				</Position>
 			</Platform>
 			<Platform>
@@ -82,8 +64,26 @@
 			</Platform>
 			<Platform>
 				<Position>
+					<X>15.4</X>
+					<Y>-15.8667</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
 					<X>15.8</X>
 					<Y>14.5333</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>29.3</X>
+					<Y>24.1333</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-30.7</X>
+					<Y>-26.5333</Y>
 				</Position>
 			</Platform>
 		</Platforms>

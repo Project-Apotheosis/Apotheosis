@@ -7,12 +7,10 @@ MainMenuScene::~MainMenuScene(){}
 void MainMenuScene::init() 
 {
 
-	for (int i = 0; i < m_buttons.size(); ++i)
-	{
-		//rButton.initExecutable() //TODO
-		m_buttons[i].init(b2Vec2(0, -i * 5), 5, 2);
-		m_buttons[i].addRenderable("button", ".png", 2);
-	}
+	m_buttons[0].init(b2Vec2(0, 5), 5, 2);
+	m_buttons[0].addRenderable("StartGame", ".png", 2);
+	m_buttons[1].init(b2Vec2(0, -5), 5, 2);
+	m_buttons[1].addRenderable("ExitGame", ".png", 2);
 
 	//Initialize buttons' executables
 	vector<function<void()>> _callbacks;

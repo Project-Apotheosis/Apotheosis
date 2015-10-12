@@ -84,7 +84,7 @@ void IActor::setActive(bool _bActive)
 		_rpBody->SetActive(_bActive);
 }
 
-b2Vec2 IActor::getPosition()
+b2Vec2 IActor::getPosition() const
 {
 	b2Vec2 _return;
 	_return.x = m_transform.translation.x;

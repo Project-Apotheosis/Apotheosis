@@ -71,7 +71,7 @@ public: //Construction
 
 private: //Data
 
-	array<MainMenuButton, 4> m_buttons;
+	array<MainMenuButton, 2> m_buttons;
 	UINT m_iCurrentButtonIndex{};
 
 

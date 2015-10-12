@@ -2,7 +2,7 @@
 
 UINT Player::s_iPlayerCount = 0;
 float Player::s_kfAttackAnimTime = 0.35f;
-
+float Player::s_kfDashAnimTime = 0.15f;
 
 Player::Player()
 {
@@ -14,8 +14,10 @@ Player::~Player()
 }
 
 
-void Player::init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY)
+void Player::init(function<void(const Player&)> _callback, const b2Vec2& _rkPosition, float _fDimX, float _fDimY)
 {
+	m_attackCallback = _callback;
+	
 	//Rendering
 	//Run
 	IActor::initializeRendering("KnightRunCycle_Animation", ".png", 10, "texAlpha.fx", "TexAlphaTech", _fDimX, _fDimY);
@@ -47,14 +49,34 @@ void Player::init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY)
 
 void Player::update(float _fDeltaTime)
 {
-	
-	
-
-	handleInput(_fDeltaTime);
 
 	updateTransform();
 
 	updateAnimations();
+	
+	//Update dash
+	if (m_fDashAnimTick >= 0.0f)
+	{
+		m_fDashAnimTick -= _fDeltaTime;
+		if (m_fDashAnimTick < 0.0f)
+		{
+			m_rigidBodies.front()->SetLinearVelocity(b2Vec2(0, 0));
+		}
+		return;
+	}
+	
+	//Update attack
+	if (m_fAttackAnimTick >= 0.0f)
+	{
+		m_rigidBodies.front()->SetLinearVelocity(b2Vec2(0, 0));
+		m_fAttackAnimTick -= _fDeltaTime;
+
+		return;
+	}
+	
+
+	handleInput(_fDeltaTime);
+
 
 
 
@@ -101,20 +123,20 @@ void Player::updateTransform()
 
 void Player::handleInput(float _fDeltaTime)
 {
-	//Attack
+	//Inititiate Attack
 	if ( InputHandler::getInstance()->handleAttack(m_iPlayerID, _fDeltaTime))
 	{
 		m_fAttackAnimTick = s_kfAttackAnimTime; //Enable attack state
-		
+		m_attackCallback(*this);
 	}
-	if (m_fAttackAnimTick >= 0.0f)
+		
+	//Initiate Dash
+	int iDashDir = 0;
+	if (InputHandler::getInstance()->handleDash(m_iPlayerID, _fDeltaTime, iDashDir))
 	{
-		m_rigidBodies.front()->SetLinearVelocity(b2Vec2(0, 0));
-		m_fAttackAnimTick -= _fDeltaTime;
-		return;
+		m_fDashAnimTick = s_kfDashAnimTime; //Enable dash state;
+		m_rigidBodies.front()->SetLinearVelocity(b2Vec2(100 * iDashDir, 0));
 	}
-		
-	
 	
 	D3DXVECTOR2 _frameTranslation = D3DXVECTOR2(0.0f, 0.0f);
 	if (InputHandler::getInstance()->handleObjectTranslation(m_iPlayerID, _frameTranslation, _fDeltaTime))

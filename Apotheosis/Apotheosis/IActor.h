@@ -28,7 +28,7 @@ public: //Construction
 
 	virtual	~IActor();
 
-	virtual void init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY) = 0;
+	virtual void init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY){}
 
 protected: //Data
 
@@ -46,7 +46,7 @@ protected: //Data
 public: //Interface
 
 	bool isActive() { return m_bActive; }
-	b2Vec2 getPosition();
+	b2Vec2 getPosition() const;
 
 	Transform& transform() { return m_transform; }
 	vector<RenderTask2D>& renderTask() { return m_renderTasks; }
