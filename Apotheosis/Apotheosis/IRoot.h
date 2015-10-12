@@ -21,6 +21,7 @@
 #include "PhysicsSystem.h"
 #include "Util.h"
 #include "InputHandler.h"
+#include "AudioManager.h"
 
 
 	class AppWin32;
@@ -51,7 +52,7 @@
 		DX10Renderer*		m_pRenderer{};
 		PhysicsSystem*		m_pPhysicsSystem{};
 		InputHandler*		m_pInputHandler{};
-		//AudioWhatever*  m_pAudio;
+		AudioManager*		m_pAudioManager{};
 		D3DInitializer		m_initializer; //Gives Win32App and Renderer details about screen.
 
 

@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "AudioManager.h"
 
 UINT Player::s_iPlayerCount = 0;
 float Player::s_kfAttackAnimTime = 0.35f;
@@ -105,6 +106,7 @@ void Player::handleInput(float _fDeltaTime)
 	if ( InputHandler::getInstance()->handleAttack(m_iPlayerID, _fDeltaTime))
 	{
 		m_fAttackAnimTick = s_kfAttackAnimTime; //Enable attack state
+		AudioManager::PlayMelee();
 		
 	}
 	if (m_fAttackAnimTick >= 0.0f)
@@ -144,7 +146,7 @@ void Player::handleInput(float _fDeltaTime)
 		if (!m_rigidBodies.back()->IsAwake())
 			m_rigidBodies.back()->SetAwake(true);
 
-
+		AudioManager::PlayJump();
 		b2Vec2 _b2Vel = m_rigidBodies.back()->GetLinearVelocity();
 		_b2Vel.y = 0.0f;
 		m_rigidBodies.back()->SetLinearVelocity(_b2Vel);
