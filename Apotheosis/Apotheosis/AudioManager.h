@@ -58,6 +58,7 @@ public:
 	static void PlayMelee();
 	static void PlayRanged();
 	static void PlayTakeDamage();
+	static void PlayGong();
 
 	//static void PlayWallSlide(); ?
 
@@ -84,11 +85,12 @@ private:
 	FMOD::ChannelGroup *channelMusic;
 	FMOD::ChannelGroup *channelSFX;
 	FMOD::Sound      *music, //music will be created using createStream
-					*jump1, *jump2, *jump3, 
+					*jump1, *jump2, *jump3,
 					*slide1, *slide2, *slide3,
 					*melee1, *melee2, *melee3,
 					*ranged1, *ranged2, *ranged3,
-					*damage1, *damage2, *damage3;
+					*damage1, *damage2, *damage3,
+					*gong;
 	FMOD::Channel    *MusicChannel = 0, *SFXChannel = 0;
 	FMOD_RESULT       result;
 	int               key;
