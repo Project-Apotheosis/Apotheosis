@@ -55,7 +55,7 @@ private: //Data
 
 
 	function<void(Player&)> m_attackCallback;
-
+	function<void()> m_channelCallback;
 
 	bool m_bSkeleton{};
 	UINT m_iSoulCount{ 1 };
@@ -71,8 +71,8 @@ public: //Interface
 
 	static UINT playerCount(){ return s_iPlayerCount; }
 
-	void init(function<void(Player&)> _callback, const b2Vec2& _rkPosition, float _fDimX, float _fDimY);
-
+	void init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY);
+	void initCallbacks(function<void(Player&)> _attack, function<void()> _channel);
 	void update(float _fDeltaTime) override;
 
 	b2Vec2 getSpawnPosition() const { return{ m_spawnPos.x, m_spawnPos.y }; }

@@ -39,8 +39,9 @@ public: //Interface
 
 	bool sceneEnding(E_SCENE& _reNextScene) override;
 
+	//Callbacks
 	void playerAttackCallback(Player& _rkAttackingPlayer);
-
+	void playerChannelSuccessCallback();
 };
 
 

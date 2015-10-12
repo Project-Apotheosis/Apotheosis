@@ -20,7 +20,12 @@ void GameplayScene::init()
 		m_platforms[i].init(b2Vec2(-25.0f + 10.0f*i, -2.0f), 3.0f, 3.0f);
 
 	for (UINT i = 0; i < m_players.size(); ++i)
-		m_players[i].init([&](Player& _rkPlayer){this->playerAttackCallback(_rkPlayer); }, b2Vec2(-2.0f + 2.0f*i, 5.0f), 2.0f, 2.0f);
+	{
+		m_players[i].init( b2Vec2(-2.0f + 2.0f*i, 5.0f), 2.0f, 2.0f);
+		m_players[i].initCallbacks([&](Player& _rkPlayer){this->playerAttackCallback(_rkPlayer); },
+								   [&](){this->playerChannelSuccessCallback(); });
+	}
+		
 
 }
 
@@ -158,6 +163,14 @@ bool GameplayScene::sceneEnding(E_SCENE& _reNextScene)
 		return true;
 	}
 	return false;
+}
+
+void GameplayScene::playerChannelSuccessCallback()
+{
+	for (auto& rPlayer : m_players)
+	{
+		rPlayer.respawn();
+	}
 }
 
 

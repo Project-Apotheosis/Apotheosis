@@ -28,9 +28,15 @@ Player::~Player()
 
 enum PlayAnim : int { Walk, Jump, Fall, Attack, Channel, Death, Walk_, Jump_, Fall_, Attack_, Channel_, Death_};
 
-void Player::init(function<void(Player&)> _callback, const b2Vec2& _rkPosition, float _fDimX, float _fDimY)
+void Player::initCallbacks(function<void(Player&)> _attack, function<void()> _channel)
 {
-	m_attackCallback = _callback;
+	m_attackCallback = _attack;
+	m_channelCallback = _channel;
+}
+
+void Player::init(const b2Vec2& _rkPosition, float _fDimX, float _fDimY)
+{
+
 	
 
 	//Rendering
@@ -113,6 +119,7 @@ void Player::update(float _fDeltaTime)
 		if (m_fDeathAnimTick < 0.0f)
 		{
 			//?
+			//m_rigidBodies.front()->SetFixedRotation(true);
 		}
 		return;
 	}
@@ -138,15 +145,16 @@ void Player::update(float _fDeltaTime)
 	}
 
 	//Update channel
-	if (m_bHoldingChannel && m_iSoulCount == 4 && m_rigidBodies.front()->GetLinearVelocity().x < 0.01f && m_rigidBodies.front()->GetLinearVelocity().y < 0.01f)
+	if (m_bHoldingChannel && m_iSoulCount == 4 && fabsf(m_rigidBodies.front()->GetLinearVelocity().x) < 0.01f && fabsf(m_rigidBodies.front()->GetLinearVelocity().y) < 0.01f)
 	{
 		m_fChannelTick += _fDeltaTime;
-		if (m_fChannelTick > 3.0f)
+		if (m_fChannelTick > 2.0f)
 		{
 			m_fChannelTick = 0.0f;
 			m_iSoulCount = 1;
 			m_playerScore.updateSkullLevel(++m_iPlayerSkullLevel);
 			m_playerScore.updatePoints(m_iSoulCount);
+			m_channelCallback();
 		}
 	}
 	else
@@ -192,10 +200,11 @@ void Player::kill(b2Vec2 _force)
 {
 	m_iSoulCount = 0;
 	m_bSkeleton = true;
-	_force.x *= 10000.0f;
-	_force.y *= 10000.0f;
+	_force.x *= 1000.0f;
+	_force.y *= 1000.0f;
+	//m_rigidBodies.back()->SetFixedRotation(false);
 	m_rigidBodies.back()->ApplyLinearImpulse(_force, b2Vec2(0.0f, 0.0f), true);
-	
+
 	setCurrState(Death);
 	m_fDeathAnimTick = s_kfDeathAnimTime;
 
@@ -205,6 +214,7 @@ void Player::kill(b2Vec2 _force)
 
 void Player::respawn()
 {
+	m_iSoulCount = 1;
 	setPosition(m_spawnPos.x, m_spawnPos.y);
 }
 
@@ -272,7 +282,7 @@ void Player::handleInput(float _fDeltaTime)
 	if (InputHandler::getInstance()->handleDash(m_iPlayerID, _fDeltaTime, iDashDir))
 	{
 		m_fDashAnimTick = s_kfDashAnimTime; //Enable dash state;
-		m_rigidBodies.front()->SetLinearVelocity(b2Vec2(200 * iDashDir, 0));
+		m_rigidBodies.front()->SetLinearVelocity(b2Vec2(400 * iDashDir, 0));
 	}
 	
 	D3DXVECTOR2 _frameTranslation = D3DXVECTOR2(0.0f, 0.0f);
@@ -290,7 +300,7 @@ void Player::handleInput(float _fDeltaTime)
 		m_rigidBodies.back()->SetLinearVelocity(_b2Vel);
 
 		b2Vec2 _b2Trans;
-		_b2Trans.x = _frameTranslation.x * 200;
+		_b2Trans.x = _frameTranslation.x * 400;
 		_b2Trans.y = 0;
 
 		//m_rigidBodies.back()->ApplyForceToCenter(_b2Trans, false);
@@ -402,7 +412,8 @@ void Player::Score::updatePoints(UINT _iPlayerSoulCount)
 	}
 	else if (_iPlayerSoulCount >= 2 && _iPlayerSoulCount < 5)
 	{
-		m_renderTasks[_iPlayerSoulCount-2].rendering = true;
+		for (int i = _iPlayerSoulCount - 2; i >= 0; i--)
+			m_renderTasks[i].rendering = true;
 	}
 }
 

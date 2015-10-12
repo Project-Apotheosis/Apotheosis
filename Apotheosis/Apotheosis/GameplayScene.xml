@@ -46,44 +46,8 @@
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-30</X>
-					<Y>12</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
 					<X>0</X>
-					<Y>0</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>24</X>
-					<Y>12</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>0</X>
-					<Y>-9</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>-6</X>
-					<Y>-9</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>-12</X>
-					<Y>-9</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>0</X>
-					<Y>-36</Y>
+					<Y>-3</Y>
 				</Position>
 			</Platform>
 			<Platform>
@@ -95,7 +59,43 @@
 			<Platform>
 				<Position>
 					<X>0</X>
-					<Y>-3</Y>
+					<Y>-36</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-12</X>
+					<Y>-9</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-6</X>
+					<Y>-9</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>0</X>
+					<Y>-9</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>24</X>
+					<Y>12</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-30</X>
+					<Y>12</Y>
 				</Position>
 			</Platform>
 			<Platform>
@@ -132,6 +132,12 @@
 				<Position>
 					<X>30</X>
 					<Y>12</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>2.1</X>
+					<Y>58.8</Y>
 				</Position>
 			</Platform>
 		</Platforms>
