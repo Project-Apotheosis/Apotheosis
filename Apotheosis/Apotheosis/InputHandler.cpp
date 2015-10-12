@@ -82,6 +82,11 @@ bool InputHandler::handleShoot(UINT _iPlayerID, float _fDeltaTime)
 	return false;
 }
 
+bool InputHandler::handleChannel(UINT _iPlayerID)
+{
+	return m_pGamePads[_iPlayerID]->getButtonPressed(E_GAMEPAD_BUTTON::GB_Y);
+}
+
 bool InputHandler::handleJump(UINT _iPlayerID, float _fDeltaTime)
 {
 	m_inputTimersJump[_iPlayerID].first += _fDeltaTime;

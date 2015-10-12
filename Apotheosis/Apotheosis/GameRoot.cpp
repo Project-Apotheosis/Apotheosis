@@ -23,13 +23,13 @@
 GameRoot::GameRoot()
 {
 	//Edit these if default not satisfactory
-	//m_initializer.iWidth = SCREEN_WIDTH_WINDOWED;
-	//m_initializer.iHeight = SCREEN_HEIGHT_WINDOWED;
+	m_initializer.iWidth = SCREEN_WIDTH_WINDOWED;
+	m_initializer.iHeight = SCREEN_HEIGHT_WINDOWED;
 
-	m_initializer.iWidth = SCREEN_WIDTH_MAX;
-	m_initializer.iHeight = SCREEN_HEIGHT_MAX;
-	m_initializer.bIsWindowed = false;
-	m_initializer.bVSYNC = false;
+	//m_initializer.iWidth = SCREEN_WIDTH_MAX;
+	//m_initializer.iHeight = SCREEN_HEIGHT_MAX;
+	//m_initializer.bIsWindowed = false;
+	//m_initializer.bVSYNC = false;
 
 	
 	m_scenes[0] = new MainMenuScene();

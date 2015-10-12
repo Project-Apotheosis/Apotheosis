@@ -62,6 +62,7 @@ public: //Interface
 	bool handleJump(UINT _iPlayerID, float _fDeltaTime);
 	bool handleShoot(UINT _iPlayerID, float _fDeltaTime);
 	bool handleAttack(UINT _iPlayerID, float _fDeltaTime);
+	bool handleChannel(UINT _iPlayerID);
 	bool handleDash(UINT _iPlayerID, float _fDeltaTime, int& _rOutDirection);
 	bool handleGeneralButton(UINT _iPlayerID, E_GAMEPAD_BUTTON _eButtonRequested, float _fDeltaTime);
 	bool handleGeneralKB(char _cButton, float _fDeltaTime);

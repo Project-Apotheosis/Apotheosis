@@ -7,7 +7,23 @@
 
 class Player : public IActor
 {
+	class Score : public IActor
+	{
+	public:
+		void init(UINT _iPlayerID);
 
+		void updatePoints(UINT _iPlayerSoulCount);
+		void updateSkullLevel(UINT _iPlayerSkullLevel);
+
+		void update(float _fDeltaTime);
+
+		
+	};
+	
+	
+	
+	
+	
 	enum PlayerDirection : int { left = -1, right = 1};
 
 
@@ -17,6 +33,8 @@ public: //Construction
 	~Player();
 
 private: //Data
+
+	Score m_playerScore;
 
 	static UINT s_iPlayerCount;
 	UINT m_iPlayerID;
@@ -41,6 +59,10 @@ private: //Data
 
 	bool m_bSkeleton{};
 	UINT m_iSoulCount{ 1 };
+
+	float m_fChannelTick{};
+	bool m_bHoldingChannel{};
+	UINT m_iPlayerSkullLevel{};
 
 public: //Interface
 

@@ -4,7 +4,13 @@
 		<Platforms>
 			<Platform>
 				<Position>
-					<X>-18</X>
+					<X>39</X>
+					<Y>-25.5</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>18</X>
 					<Y>12</Y>
 				</Position>
 			</Platform>
@@ -16,14 +22,32 @@
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-30</X>
+					<X>33</X>
+					<Y>-25.5</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-24</X>
 					<Y>12</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-39</X>
-					<Y>-25.5</Y>
+					<X>0</X>
+					<Y>15</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-18</X>
+					<Y>12</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-30</X>
+					<Y>12</Y>
 				</Position>
 			</Platform>
 			<Platform>
@@ -36,24 +60,6 @@
 				<Position>
 					<X>24</X>
 					<Y>12</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>30</X>
-					<Y>12</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>12</X>
-					<Y>-9</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>6</X>
-					<Y>-9</Y>
 				</Position>
 			</Platform>
 			<Platform>
@@ -112,38 +118,20 @@
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-24</X>
-					<Y>12</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>33</X>
-					<Y>-25.5</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>18</X>
-					<Y>12</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>39</X>
-					<Y>-25.5</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>0</X>
-					<Y>15</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
 					<X>-38</X>
 					<Y>25.5</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-39</X>
+					<Y>-25.5</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>30</X>
+					<Y>12</Y>
 				</Position>
 			</Platform>
 		</Platforms>
