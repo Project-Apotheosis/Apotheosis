@@ -19,6 +19,7 @@ struct SurfaceInfo
 };
 
 bool gDefaultUVs;
+float4 gPlayerColor;
 
 float3 ParallelLight(SurfaceInfo v, Light L, float3 eyePos)
 {
@@ -87,7 +88,7 @@ Texture2DArray gTexArray;
 
 SamplerState gTriLinearSam
 {
-	Filter = MIN_MAG_MIP_LINEAR;
+	Filter = MIN_MAG_MIP_POINT;
 	AddressU = Wrap;
 	AddressV = Wrap;
 };
@@ -145,6 +146,9 @@ float4 PS(VS_OUT pIn) : SV_Target
     
 	int index = (gGameTime * gAnimRate) % gSpriteCount;
 	float4 diffuse = gTexArray.Sample(gTriLinearSam, float3(pIn.texC, index));
+
+		if (diffuse.x > 0.9f && diffuse.y < 0.08f && diffuse.z > 0.9f)
+			diffuse = float4(gPlayerColor.x, gPlayerColor.y, gPlayerColor.z, diffuse.w);
 
 		//float4 spec = diffuse;
 		// Map [0,1] --> [0,256]

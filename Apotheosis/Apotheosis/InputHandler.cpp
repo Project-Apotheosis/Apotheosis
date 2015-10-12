@@ -126,7 +126,7 @@ bool InputHandler::handleAttack(UINT _iPlayerID, float _fDeltaTime)
 {
 	m_inputTimersAttack[_iPlayerID].first += _fDeltaTime;
 
-	if (m_inputTimersAttack[_iPlayerID].first - m_inputTimersAttack[_iPlayerID].second > 1.0f)
+	if (m_inputTimersAttack[_iPlayerID].first - m_inputTimersAttack[_iPlayerID].second > 0.4f)
 	{
 		if (m_pGamePads[_iPlayerID]->getButtonPressed(E_GAMEPAD_BUTTON::GB_X))
 		{
@@ -150,7 +150,7 @@ bool InputHandler::handleObjectTranslation(UINT _iPlayerID, D3DXVECTOR2& _rTrans
 
 	m_inputTimersMove[_iPlayerID].first += _fDeltaTime;
 
-	if (m_inputTimersMove[_iPlayerID].first - m_inputTimersMove[_iPlayerID].second > 0.1f)
+	if (m_inputTimersMove[_iPlayerID].first - m_inputTimersMove[_iPlayerID].second > 0.0001f)
 	{
 
 		bool _bMoveHandled = false;

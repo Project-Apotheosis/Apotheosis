@@ -73,3 +73,11 @@ void PhysicsSystem::addFixtureToBody(b2Body* _pBody, const b2PolygonShape& _rkSh
 
 	_pBody->CreateFixture(&_rkFixtureDef);
 }
+
+void PhysicsSystem::addFixtureToBody(b2Body* _pBody, const b2CircleShape& _rkShape, b2FixtureDef& _rkFixtureDef)
+{
+	_rkFixtureDef.shape = &_rkShape;
+
+
+	_pBody->CreateFixture(&_rkFixtureDef);
+}

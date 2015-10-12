@@ -108,6 +108,8 @@ struct RenderTaskShaded
 
 		//UV inversion for left / right facing
 		bool bDefaultUVs{ true };
+		//Color lel
+		D3DXVECTOR4 playerColor;
 
 	};
 

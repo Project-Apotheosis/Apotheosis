@@ -16,8 +16,8 @@
 IActor::IActor()
 {
 	Transform::rotateAroundRight(&m_transform, -D3DX_PI / 2);
-	m_renderTasks.reserve(10);
-	m_textureAnimQueues.reserve(10);
+	m_renderTasks.reserve(20);
+	m_textureAnimQueues.reserve(20);
 }
 
 IActor::~IActor()

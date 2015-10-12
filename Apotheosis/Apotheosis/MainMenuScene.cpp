@@ -8,9 +8,9 @@ void MainMenuScene::init()
 {
 
 	m_buttons[0].init(b2Vec2(0, 5), 5, 2);
-	m_buttons[0].addRenderable("StartGame", ".png", 2);
+	m_buttons[0].addRenderable("StartGame_", ".png", 2);
 	m_buttons[1].init(b2Vec2(0, -5), 5, 2);
-	m_buttons[1].addRenderable("ExitGame", ".png", 2);
+	m_buttons[1].addRenderable("ExitGame_", ".png", 2);
 
 	//Initialize buttons' executables
 	vector<function<void()>> _callbacks;

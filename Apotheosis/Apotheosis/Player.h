@@ -10,11 +10,11 @@ class Player : public IActor
 
 	enum PlayerDirection : int { left = -1, right = 1};
 
+
 public: //Construction
 
 	Player();
 	~Player();
-
 
 private: //Data
 
@@ -27,20 +27,29 @@ private: //Data
 
 	//Attack timing
 	static float s_kfAttackAnimTime;
-	float m_fAttackAnimTick = s_kfAttackAnimTime;
+	float m_fAttackAnimTick = 0.0f;
 	//Dash timing
 	static float s_kfDashAnimTime;
-	float m_fDashAnimTick = s_kfDashAnimTime;
+	float m_fDashAnimTick = 0.0f;
+	//Death timing
+	static float s_kfDeathAnimTime;
+	float m_fDeathAnimTick = 0.0f;
 
-	function<void(const Player&)> m_attackCallback;
-	
+
+	function<void(Player&)> m_attackCallback;
+
+
+	bool m_bSkeleton{};
+	UINT m_iSoulCount{ 1 };
+
 public: //Interface
 
 	UINT getPlayerID() const { return m_iPlayerID; }
+	UINT getSoulCount() const { return m_iSoulCount; }
 
 	static UINT playerCount(){ return s_iPlayerCount; }
 
-	void init(function<void(const Player&)> _callback, const b2Vec2& _rkPosition, float _fDimX, float _fDimY);
+	void init(function<void(Player&)> _callback, const b2Vec2& _rkPosition, float _fDimX, float _fDimY);
 
 	void update(float _fDeltaTime) override;
 
@@ -48,6 +57,11 @@ public: //Interface
 	void setSpawnPosition(float _fX, float _fY) { m_spawnPos.x = _fX; m_spawnPos.y = _fY; }
 
 	void respawn();
+
+	//Called from callback (member function of GameplayScene
+	void stealSouls(UINT _iSoulCount);
+	//Called from callback (member function of GameplayScene
+	void kill(b2Vec2 _force);
 
 private: //Internals
 

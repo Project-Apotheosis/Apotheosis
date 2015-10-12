@@ -94,8 +94,8 @@
 	void Camera::updateProjectionMatrix()
 	{
 		//Specify the field of view, aspect ration and near and far clipping planes.
-		D3DXMatrixPerspectiveFovLH(&m_projMtx, (float)(D3DX_PI / 4.0), m_fAspectRatio, m_kfNearClip, m_kfFarClip); 
-
+		//D3DXMatrixPerspectiveFovLH(&m_projMtx, (float)(D3DX_PI / 4.0), m_fAspectRatio, m_kfNearClip, m_kfFarClip); 
+		D3DXMatrixOrthoLH(&m_projMtx, SCREEN_WIDTH_MAX / 13, SCREEN_HEIGHT_MAX / 13, m_kfNearClip, m_kfFarClip);
 	}
 
 	/**

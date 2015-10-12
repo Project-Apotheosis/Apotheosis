@@ -49,6 +49,7 @@ public: //Interface
 	static b2Body* createBody(b2BodyType _eType, const b2Vec2& _rkPosition);
 
 	static void addFixtureToBody(b2Body* _pBody, const b2PolygonShape& _rkShape, b2FixtureDef& _rkFixtureDef);
+	static void addFixtureToBody(b2Body* _pBody, const b2CircleShape& _rkShape, b2FixtureDef& _rkFixtureDef);
 };
 
 

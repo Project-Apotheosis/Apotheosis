@@ -39,7 +39,7 @@ public: //Interface
 
 	bool sceneEnding(E_SCENE& _reNextScene) override;
 
-	void playerAttackCallback(const Player& _rkAttackingPlayer);
+	void playerAttackCallback(Player& _rkAttackingPlayer);
 
 };
 

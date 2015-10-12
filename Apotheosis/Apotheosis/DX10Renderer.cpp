@@ -539,6 +539,7 @@
 			_kpRenderTask->pFXSpriteCountVar->AsScalar()->SetFloat(_kpRenderTask->iSpriteCount);
 
 			_kpRenderTask->pFX->GetVariableByName("gDefaultUVs")->AsScalar()->SetBool(_kpRenderTask->bDefaultUVs);
+			_kpRenderTask->pFX->GetVariableByName("gPlayerColor")->AsVector()->SetFloatVector((float*)&_kpRenderTask->playerColor);
 
 			//if (_kpRenderTask->textures[T_DIFFUSE])
 			//{
