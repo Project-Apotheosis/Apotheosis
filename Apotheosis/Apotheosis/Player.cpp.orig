@@ -128,9 +128,13 @@ void Player::handleInput(float _fDeltaTime)
 	if ( InputHandler::getInstance()->handleAttack(m_iPlayerID, _fDeltaTime))
 	{
 		m_fAttackAnimTick = s_kfAttackAnimTime; //Enable attack state
+<<<<<<< HEAD
 		m_attackCallback(*this);
-	}
+=======
 		AudioManager::PlayMelee();
+		
+>>>>>>> 765c2f5d09d58b47318a8754d2f47fdda36e55a8
+	}
 		
 	//Initiate Dash
 	int iDashDir = 0;

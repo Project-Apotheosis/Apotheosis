@@ -21,6 +21,7 @@
 		: m_pRenderer(DX10Renderer::getInstance())
 		, m_pPhysicsSystem(PhysicsSystem::getInstance())
 		, m_pInputHandler(InputHandler::getInstance())
+		, m_pAudioManager(AudioManager::getInstance())
 	{
 		//Timer
 		m_timer.reset();
@@ -51,6 +52,9 @@
 
 		m_pCamera = m_pRenderer->createCamera();
 
+		if (!m_pAudioManager->init())
+			return false;
+
 
 		//Functions to be implemented by derived object (application side initialization / creation)
 		init();
@@ -77,6 +81,7 @@
 		m_pInputHandler->shutDown();
 		m_pRenderer->shutDown();
 		m_pPhysicsSystem->shutDown();
+		m_pAudioManager->shutDown();
 	}
 
 
@@ -100,6 +105,7 @@
 
 		m_pRenderer->update((float)m_timer.getDeltaTime());
 		m_pPhysicsSystem->update((float)m_timer.getDeltaTime());
+		m_pAudioManager->Update();
 
 		return true;
 
