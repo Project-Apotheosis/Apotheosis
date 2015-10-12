@@ -1,5 +1,6 @@
 #include "GameplayScene.h"
 #include "LevelLoader.h"
+#include "AudioManager.h"
 
 
 GameplayScene::GameplayScene(){}
@@ -145,6 +146,8 @@ void GameplayScene::setActive(bool _bActive)
 		//Respawn players
 		for (auto& rPlayer : m_players)
 			rPlayer.respawn();
+
+		AudioManager::PlayGong();
 	}
 	
 

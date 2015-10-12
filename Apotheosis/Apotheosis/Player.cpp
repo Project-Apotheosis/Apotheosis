@@ -198,6 +198,7 @@ void Player::stealSouls(UINT _iSoulCount)
 
 void Player::kill(b2Vec2 _force)
 {
+	AudioManager::PlayTakeDamage();
 	m_iSoulCount = 0;
 	m_bSkeleton = true;
 	_force.x *= 1000.0f;
@@ -261,11 +262,12 @@ void Player::handleInput(float _fDeltaTime)
 	//Inititiate Attack
 	if ( InputHandler::getInstance()->handleAttack(m_iPlayerID, _fDeltaTime))
 	{
+		AudioManager::PlayMelee();
 		m_fAttackAnimTick = s_kfAttackAnimTime; //Enable attack state
 		m_attackCallback(*this);
 	}
 	
-	AudioManager::PlayMelee();
+	
 
 	//Channel
 	if (InputHandler::getInstance()->handleChannel(m_iPlayerID))
@@ -281,6 +283,7 @@ void Player::handleInput(float _fDeltaTime)
 	int iDashDir = 0;
 	if (InputHandler::getInstance()->handleDash(m_iPlayerID, _fDeltaTime, iDashDir))
 	{
+		AudioManager::PlaySlide();
 		m_fDashAnimTick = s_kfDashAnimTime; //Enable dash state;
 		m_rigidBodies.front()->SetLinearVelocity(b2Vec2(400 * iDashDir, 0));
 	}

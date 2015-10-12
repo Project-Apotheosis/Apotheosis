@@ -107,6 +107,11 @@ bool AudioManager::init()
 	SFXChannel->setChannelGroup(channelSFX);
 	MusicChannel->setChannelGroup(channelMusic);
 
+	//load gong
+	result = system->createSound("../Audio/Gong.wav", FMOD_DEFAULT, 0, &gong);
+	if (ERRCHECK(result))
+		return false;
+
 	//load jump sounds
 	result = system->createSound("../Audio/Jump1.wav", FMOD_DEFAULT, 0, &jump1);
 	if (ERRCHECK(result))
@@ -116,29 +121,78 @@ bool AudioManager::init()
 	if (ERRCHECK(result))
 		return false;
 
-	result = system->createSound("../Audio/Jump3.wav", FMOD_DEFAULT, 0, &jump3);
+	result = system->createSound("../Audio/Jump3.mp3", FMOD_DEFAULT, 0, &jump3);
 	if (ERRCHECK(result))
 		return false;
 
 	//load slide sounds
+	result = system->createSound("../Audio/Slide1.wav", FMOD_DEFAULT, 0, &slide1);
+	if (ERRCHECK(result))
+		return false;
+
+	result = system->createSound("../Audio/Slide2.wav", FMOD_DEFAULT, 0, &slide2);
+	if (ERRCHECK(result))
+		return false;
+
+	result = system->createSound("../Audio/Slide3.wav", FMOD_DEFAULT, 0, &slide3);
+	if (ERRCHECK(result))
+		return false;
+
 	//load melee sounds
+	result = system->createSound("../Audio/Melee1.mp3", FMOD_DEFAULT, 0, &melee1);
+	if (ERRCHECK(result))
+		return false;
+
+	result = system->createSound("../Audio/Melee2.mp3", FMOD_DEFAULT, 0, &melee2);
+	if (ERRCHECK(result))
+		return false;
+
+	result = system->createSound("../Audio/Melee3.mp3", FMOD_DEFAULT, 0, &melee3);
+	if (ERRCHECK(result))
+		return false;
+
 	//load ranged sounds
 	//load damage sounds
+	result = system->createSound("../Audio/Damage1.wav", FMOD_DEFAULT, 0, &damage1);
+	if (ERRCHECK(result))
+		return false;
+
+	result = system->createSound("../Audio/Damage2.wav", FMOD_DEFAULT, 0, &damage2);
+	if (ERRCHECK(result))
+		return false;
+
+	result = system->createSound("../Audio/Damage3.wav", FMOD_DEFAULT, 0, &damage3);
+	if (ERRCHECK(result))
+		return false;
 
 	return true;
 }
 
 void AudioManager::shutDown()
 {
+	//release gong
+	gong->release();
+
 	//release jump sounds
 	jump1->release();
 	jump2->release();
 	jump3->release();
 
 	//release slide sounds
+	slide1->release();
+	slide2->release();
+	slide3->release();
+
 	//release melee sounds
+	melee1->release();
+	melee2->release();
+	melee3->release();
+
 	//release ranged sounds
 	//release damage sounds
+	damage1->release();
+	damage2->release();
+	damage3->release();
 
 	system->close();
 	system->release();
@@ -147,6 +201,13 @@ void AudioManager::shutDown()
 void AudioManager::Update()
 {
 	system->update();
+}
+
+void AudioManager::PlayGong()
+{
+	s_pInstance->result = s_pInstance->system->playSound(FMOD_CHANNEL_FREE, s_pInstance->gong, false, &s_pInstance->SFXChannel);
+	s_pInstance->SFXChannel->setChannelGroup(s_pInstance->channelSFX);
+	s_pInstance->SFXChannel->setPaused(false);
 }
 
 void AudioManager::PlayJump()
