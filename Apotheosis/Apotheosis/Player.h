@@ -62,6 +62,7 @@ private: //Data
 
 	float m_fChannelTick{};
 	bool m_bHoldingChannel{};
+	bool m_bChannelStarted{};
 	UINT m_iPlayerSkullLevel{};
 
 public: //Interface

@@ -60,6 +60,9 @@ public:
 	static void PlayTakeDamage();
 	static void PlayGong();
 
+	static void PlayChannel();
+	static void StopChannel();
+
 	//static void PlayWallSlide(); ?
 
 	//music
@@ -90,8 +93,9 @@ private:
 					*melee1, *melee2, *melee3,
 					*ranged1, *ranged2, *ranged3,
 					*damage1, *damage2, *damage3,
+					*channelSoul,
 					*gong;
-	FMOD::Channel    *MusicChannel = 0, *SFXChannel = 0;
+	FMOD::Channel    *MusicChannel = 0, *SFXChannel = 0, *ChannelChannel;
 	FMOD_RESULT       result;
 	int               key;
 	unsigned int      version;

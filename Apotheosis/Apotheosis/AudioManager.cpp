@@ -106,6 +106,7 @@ bool AudioManager::init()
 
 	SFXChannel->setChannelGroup(channelSFX);
 	MusicChannel->setChannelGroup(channelMusic);
+	ChannelChannel->setChannelGroup(channelSFX);
 
 	//load gong
 	result = system->createSound("../Audio/Gong.wav", FMOD_DEFAULT, 0, &gong);
@@ -165,6 +166,12 @@ bool AudioManager::init()
 	if (ERRCHECK(result))
 		return false;
 
+	//load channel sounds
+	result = system->createSound("../Audio/Gong.wav", FMOD_DEFAULT, 0, &channelSoul);
+	if (ERRCHECK(result))
+		return false;
+
+
 	return true;
 }
 
@@ -172,6 +179,9 @@ void AudioManager::shutDown()
 {
 	//release gong
 	gong->release();
+
+	//release channel
+	channelSoul->release();
 
 	//release jump sounds
 	jump1->release();
@@ -208,6 +218,19 @@ void AudioManager::PlayGong()
 	s_pInstance->result = s_pInstance->system->playSound(FMOD_CHANNEL_FREE, s_pInstance->gong, false, &s_pInstance->SFXChannel);
 	s_pInstance->SFXChannel->setChannelGroup(s_pInstance->channelSFX);
 	s_pInstance->SFXChannel->setPaused(false);
+}
+
+void AudioManager::PlayChannel()
+{
+	s_pInstance->result = s_pInstance->system->playSound(FMOD_CHANNEL_FREE, s_pInstance->channelSoul, false, &s_pInstance->ChannelChannel);
+	s_pInstance->ChannelChannel->setChannelGroup(s_pInstance->channelSFX);
+	s_pInstance->ChannelChannel->setPaused(false);
+}
+
+void AudioManager::StopChannel()
+{
+	//s_pInstance->ChannelChannel->setPaused(true);
+	s_pInstance->ChannelChannel->stop();
 }
 
 void AudioManager::PlayJump()

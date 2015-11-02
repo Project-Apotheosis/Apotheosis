@@ -17,7 +17,7 @@ D3DXVECTOR4 g_playerColors[4] = {
 Player::Player()
 {
 	m_iPlayerID = s_iPlayerCount++;
-
+	m_bChannelStarted = false;
 
 
 }
@@ -147,6 +147,12 @@ void Player::update(float _fDeltaTime)
 	//Update channel
 	if (m_bHoldingChannel && m_iSoulCount == 4 && fabsf(m_rigidBodies.front()->GetLinearVelocity().x) < 0.01f && fabsf(m_rigidBodies.front()->GetLinearVelocity().y) < 0.01f)
 	{
+		if (!m_bChannelStarted)
+		{
+			m_bChannelStarted = true;
+			AudioManager::PlayChannel();
+		}
+
 		m_fChannelTick += _fDeltaTime;
 		if (m_fChannelTick > 2.0f)
 		{
@@ -154,9 +160,11 @@ void Player::update(float _fDeltaTime)
 			m_iSoulCount = 1;
 			m_playerScore.updateSkullLevel(++m_iPlayerSkullLevel);
 			m_playerScore.updatePoints(m_iSoulCount);
+			AudioManager::StopChannel();
 			m_channelCallback();
 		}
 	}
+
 	else
 	{
 		m_fChannelTick = 0.0f;
@@ -199,6 +207,11 @@ void Player::stealSouls(UINT _iSoulCount)
 void Player::kill(b2Vec2 _force)
 {
 	AudioManager::PlayTakeDamage();
+	if (m_iSoulCount == 4)
+	{
+		m_bChannelStarted = false;
+		AudioManager::StopChannel();
+	}
 	m_iSoulCount = 0;
 	m_bSkeleton = true;
 	_force.x *= 1000.0f;
@@ -262,6 +275,11 @@ void Player::handleInput(float _fDeltaTime)
 	//Inititiate Attack
 	if ( InputHandler::getInstance()->handleAttack(m_iPlayerID, _fDeltaTime))
 	{
+		if (m_iSoulCount == 4)
+		{
+			m_bChannelStarted = false;
+			AudioManager::StopChannel();
+		}
 		AudioManager::PlayMelee();
 		m_fAttackAnimTick = s_kfAttackAnimTime; //Enable attack state
 		m_attackCallback(*this);
@@ -276,6 +294,12 @@ void Player::handleInput(float _fDeltaTime)
 	}
 	else
 	{
+		if (m_iSoulCount == 4)
+		{
+			m_bChannelStarted = false;
+			AudioManager::StopChannel();
+		}
+
 		m_bHoldingChannel = false;
 	}
 		
@@ -283,6 +307,12 @@ void Player::handleInput(float _fDeltaTime)
 	int iDashDir = 0;
 	if (InputHandler::getInstance()->handleDash(m_iPlayerID, _fDeltaTime, iDashDir))
 	{
+		if (m_iSoulCount == 4)
+		{
+			m_bChannelStarted = false;
+			AudioManager::StopChannel();
+		}
+
 		AudioManager::PlaySlide();
 		m_fDashAnimTick = s_kfDashAnimTime; //Enable dash state;
 		m_rigidBodies.front()->SetLinearVelocity(b2Vec2(400 * iDashDir, 0));
@@ -291,6 +321,12 @@ void Player::handleInput(float _fDeltaTime)
 	D3DXVECTOR2 _frameTranslation = D3DXVECTOR2(0.0f, 0.0f);
 	if (InputHandler::getInstance()->handleObjectTranslation(m_iPlayerID, _frameTranslation, _fDeltaTime))
 	{
+		if (m_iSoulCount == 4)
+		{
+			m_bChannelStarted = false;
+			AudioManager::StopChannel();
+		}
+
 		//Player default faces right
 		m_currentDirection = _frameTranslation.x >= 0.0f ? PlayerDirection::right : PlayerDirection::left;
 
@@ -320,6 +356,11 @@ void Player::handleInput(float _fDeltaTime)
 
 	if (InputHandler::getInstance()->handleJump(m_iPlayerID, _fDeltaTime))
 	{
+		if (m_iSoulCount == 4)
+		{
+			m_bChannelStarted = false;
+			AudioManager::StopChannel();
+		}
 		
 		if (!m_rigidBodies.back()->IsAwake())
 			m_rigidBodies.back()->SetAwake(true);

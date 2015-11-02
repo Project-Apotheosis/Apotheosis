@@ -4,20 +4,8 @@
 		<Platforms>
 			<Platform>
 				<Position>
-					<X>-33</X>
-					<Y>-25.5</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>0</X>
-					<Y>3</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>0</X>
-					<Y>9</Y>
+					<X>18</X>
+					<Y>12</Y>
 				</Position>
 			</Platform>
 			<Platform>
@@ -28,20 +16,44 @@
 			</Platform>
 			<Platform>
 				<Position>
-					<X>38</X>
-					<Y>25.5</Y>
+					<X>33</X>
+					<Y>-25.5</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>18</X>
+					<X>0</X>
+					<Y>0</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-18</X>
 					<Y>12</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>33</X>
+					<X>0</X>
+					<Y>3</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>31.1</X>
+					<Y>0.133333</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-33</X>
 					<Y>-25.5</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>0</X>
+					<Y>9</Y>
 				</Position>
 			</Platform>
 			<Platform>
@@ -106,26 +118,14 @@
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-38</X>
+					<X>2.1</X>
+					<Y>58.8</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>38</X>
 					<Y>25.5</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>30</X>
-					<Y>12</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>0</X>
-					<Y>15</Y>
-				</Position>
-			</Platform>
-			<Platform>
-				<Position>
-					<X>-18</X>
-					<Y>12</Y>
 				</Position>
 			</Platform>
 			<Platform>
@@ -136,8 +136,20 @@
 			</Platform>
 			<Platform>
 				<Position>
-					<X>2.1</X>
-					<Y>58.8</Y>
+					<X>-38</X>
+					<Y>25.5</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>0</X>
+					<Y>15</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>30</X>
+					<Y>12</Y>
 				</Position>
 			</Platform>
 		</Platforms>
