@@ -16,9 +16,13 @@ void MainMenuScene::init()
 	vector<function<void()>> _callbacks;
 	_callbacks.push_back([&](){ m_bSceneEnding = true; m_nextSceneSelected = S_GAMEPLAY; });
 
-	for_each(m_buttons.begin(), m_buttons.end(), [&](MainMenuButton& _rButton){_rButton.initExecutable(_callbacks); });
-	//for (auto& rButton : m_buttons)
-	//	rButton.initExecutable(_callbacks);
+	//First button
+	m_buttons.front().initExecutable(_callbacks);
+
+	//Second button
+	_callbacks.clear();
+	_callbacks.push_back([&](){ m_bSceneEnding = true; m_nextSceneSelected = S_EXIT; });
+	m_buttons.back().initExecutable(_callbacks);
 
 	m_buttons.front().highlight(true); //Top button is automatically selected
 }

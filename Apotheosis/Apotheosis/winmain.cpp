@@ -10,9 +10,9 @@
 // Author : Serge Radinovich
 // Mail : srad015@hotmail.com
 
-//#ifdef _DEBUG
-//#include <vld.h>
-//#endif
+#ifdef _DEBUG
+#include <vld.h>
+#endif
 
 #include "AppWin32.h"
 #include "GameRoot.h"

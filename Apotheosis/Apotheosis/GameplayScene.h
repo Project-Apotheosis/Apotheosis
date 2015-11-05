@@ -5,7 +5,7 @@
 #include "IGameScene.h"
 #include "Player.h"
 #include "Platform.h"
-
+#include "MainMenuButton.h"
 
 class GameplayScene : public IGameScene
 {
@@ -26,8 +26,17 @@ private: //Data
 
 	UINT m_iInactivePlatformCount{}; //Set from loading xml
 
+	bool m_bPaused;
+	UINT m_iCurrentButtonIndex{};
+	array<MainMenuButton, 2> m_buttons;
+
 	//Player m_player;
 	array<Player, 4> m_players;
+
+private: //Internals
+
+	void navigateMenu(bool _bUp);
+	void changePauseState(bool _bPaused);
 
 public: //Interface
 

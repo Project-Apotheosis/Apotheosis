@@ -158,7 +158,12 @@ void Player::update(float _fDeltaTime)
 		{
 			m_fChannelTick = 0.0f;
 			m_iSoulCount = 1;
-			m_playerScore.updateSkullLevel(++m_iPlayerSkullLevel);
+
+			if (m_playerScore.updateSkullLevel(++m_iPlayerSkullLevel))
+			{
+				m_bWinner = true;
+			}
+			
 			m_playerScore.updatePoints(m_iSoulCount);
 			AudioManager::StopChannel();
 			m_channelCallback();
@@ -375,6 +380,12 @@ void Player::handleInput(float _fDeltaTime)
 
 }
 
+void Player::resetScore()
+{
+	m_playerScore.setActive(false);
+	m_iPlayerSkullLevel = 0;
+	m_bWinner = false;
+}
 
 
 //Player score
@@ -441,9 +452,18 @@ void Player::Score::init(UINT _iPlayerID)
 		rTask.rendering = false;
 }
 
-void Player::Score::updateSkullLevel(UINT _iPlayerSkullLevel)
+bool Player::Score::updateSkullLevel(UINT _iPlayerSkullLevel)
 {
-	m_renderTasks[_iPlayerSkullLevel + 2].rendering = true;
+	if (_iPlayerSkullLevel > 3)
+	{
+		return true;
+	}
+	else
+	{
+		m_renderTasks[_iPlayerSkullLevel + 2].rendering = true;
+		return false;
+	}
+	
 }
 
 void Player::Score::updatePoints(UINT _iPlayerSoulCount)

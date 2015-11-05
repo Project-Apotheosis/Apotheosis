@@ -65,7 +65,7 @@
 		//Populate SceneManager with objects, renderables and entities here
 		virtual void createScene() = 0;
 		//Add game logic in this call
-		virtual void update(float _fDeltaTime) = 0;
+		virtual bool update(float _fDeltaTime) = 0;
 
 
 	private:

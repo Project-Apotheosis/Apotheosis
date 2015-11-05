@@ -103,7 +103,7 @@ void GameRoot::createScene() //AB: Object Ordering
 *	@author Serge Radinovich
 *	@param	_fDeltaTime				Delta Time
 */
-void GameRoot::update(float _fDeltaTime)
+bool GameRoot::update(float _fDeltaTime)
 {
 	InputHandler::getInstance()->update();
 
@@ -112,23 +112,18 @@ void GameRoot::update(float _fDeltaTime)
 	E_SCENE _eTempScene;
 	if (m_scenes[m_eCurrentScene]->sceneEnding(_eTempScene))
 	{
+		if (_eTempScene == S_EXIT)
+		{
+			return false;
+		}
+		
 		m_scenes[m_eCurrentScene]->setActive(false);
+
 		m_eCurrentScene = _eTempScene;
 		m_scenes[m_eCurrentScene]->setActive(true);
 	}
 
-	/*D3DXMATRIX _rotMtx;
-	D3DXMatrixRotationAxis(&_rotMtx, &D3DXVECTOR3(0.0f, 0.0f, 1.0f), D3DX_PI * _fDeltaTime);
-
-	D3DXVECTOR3 _dir = DX10Renderer::getLight(m_parallelLightHandle.first, m_parallelLightHandle.second).dir;
-	D3DXVECTOR4 _dirTemp;
-	D3DXVec3Transform(&_dirTemp, &_dir, &_rotMtx);
-
-	_dir.x = _dirTemp.x;
-	_dir.y = _dirTemp.y;
-	_dir.z = _dirTemp.z;
-	DX10Renderer::getLight(m_parallelLightHandle.first, m_parallelLightHandle.second).dir = _dir;*/
-
+	return true;
 }
 
 

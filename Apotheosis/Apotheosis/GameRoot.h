@@ -47,7 +47,7 @@ private: //Internals
 	void createScene()						override;
 
 	//All application-specific updating happens here
-	void update(float _fDeltaTime)			override;
+	bool update(float _fDeltaTime)			override;
 
 };
 

@@ -117,6 +117,7 @@
     <ClInclude Include="IButton.h" />
     <ClInclude Include="IGameScene.h" />
     <ClInclude Include="LevelLoader.h" />
+    <ClInclude Include="MainMenuButton.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="XInputManager.h" />
     <ClInclude Include="GameRoot.h" />
