@@ -152,7 +152,6 @@ bool AudioManager::init()
 	if (ERRCHECK(result))
 		return false;
 
-	//load ranged sounds
 	//load damage sounds
 	result = system->createSound("../Audio/Damage1.wav", FMOD_DEFAULT, 0, &damage1);
 	if (ERRCHECK(result))
@@ -171,6 +170,12 @@ bool AudioManager::init()
 	if (ERRCHECK(result))
 		return false;
 
+	//load music
+	result = system->createSound("../Audio/CMP-V2-180.mp3", FMOD_DEFAULT, 0, &music);
+	if (ERRCHECK(result))
+		return false;
+
+	PlayMusic();
 
 	return true;
 }
@@ -204,8 +209,12 @@ void AudioManager::shutDown()
 	damage2->release();
 	damage3->release();
 
+	music->release();
+
 	system->close();
 	system->release();
+
+	delete s_pInstance;
 }
 
 void AudioManager::Update()
@@ -351,6 +360,15 @@ void AudioManager::PlayTakeDamage()
 		s_pInstance->SFXChannel->setChannelGroup(s_pInstance->channelSFX);
 		s_pInstance->SFXChannel->setPaused(false);
 	}
+}
+
+void AudioManager::PlayMusic()
+{
+	s_pInstance->result = s_pInstance->system->playSound(FMOD_CHANNEL_FREE, s_pInstance->music, false, &s_pInstance->MusicChannel);
+	s_pInstance->MusicChannel->setChannelGroup(s_pInstance->channelMusic);
+	s_pInstance->MusicChannel->setPaused(false);
+	s_pInstance->MusicChannel->setMode(FMOD_LOOP_NORMAL);
+	s_pInstance->MusicChannel->setLoopCount(-1);
 }
 
 void AudioManager::SetMusicVolume(float _fVolume)

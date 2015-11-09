@@ -1,185 +1,331 @@
 <?xml version="1.0"?>
 <Profile Format="1">
 	<Level>
-<<<<<<< HEAD
 		<Platforms>
 			<Platform>
 				<Position>
-					<X>-38</X>
-					<Y>25.5</Y>
+					<X>-31</X>
+					<Y>19.3333</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>0</X>
-					<Y>0</Y>
+					<X>435</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>38</X>
-					<Y>25.5</Y>
+					<X>445</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>0</X>
-					<Y>3</Y>
+					<X>455</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>18</X>
-					<Y>12</Y>
+					<X>-24.2</X>
+					<Y>-4</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>39</X>
-					<Y>-25.5</Y>
+					<X>-4.3</X>
+					<Y>19.8667</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>33</X>
-					<Y>-25.5</Y>
+					<X>95</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-33</X>
-					<Y>-25.5</Y>
+					<X>45</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>0</X>
-					<Y>9</Y>
+					<X>55</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>0</X>
-					<Y>-3</Y>
+					<X>65</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>0</X>
-					<Y>-30</Y>
+					<X>75</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>0</X>
-					<Y>-36</Y>
+					<X>85</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-12</X>
-					<Y>-9</Y>
+					<X>465</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-6</X>
-					<Y>-9</Y>
+					<X>105</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>0</X>
-					<Y>-9</Y>
+					<X>115</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>24</X>
-					<Y>12</Y>
+					<X>125</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>0</X>
-					<Y>0</Y>
+					<X>135</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-30</X>
-					<Y>12</Y>
+					<X>145</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-39</X>
-					<Y>-25.5</Y>
+					<X>155</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>0</X>
-					<Y>15</Y>
+					<X>165</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>30</X>
-					<Y>12</Y>
+					<X>175</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>2.1</X>
-					<Y>58.8</Y>
+					<X>185</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>31.1</X>
-					<Y>0.133333</Y>
+					<X>195</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-24</X>
-					<Y>12</Y>
+					<X>205</X>
+					<Y>-2</Y>
 				</Position>
 			</Platform>
 			<Platform>
 				<Position>
-					<X>-18</X>
-					<Y>12</Y>
+					<X>215</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>225</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>235</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>245</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>255</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>265</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>275</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>285</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>295</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>305</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>315</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>325</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>335</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>345</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>355</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>365</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>375</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>385</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>395</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>405</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>415</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>425</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>435</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>445</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>455</X>
+					<Y>-2</Y>
+				</Position>
+			</Platform>
+			<Platform>
+				<Position>
+					<X>-7.3</X>
+					<Y>2.66667</Y>
 				</Position>
 			</Platform>
 		</Platforms>
-=======
-		<Platforms />
->>>>>>> ae3933f78cba40873e4c9998ccd6bada110c46f2
 		<PlayerSpawns>
 			<Spawn>
 				<Position>
-					<X>-35</X>
-					<Y>31</Y>
+					<X>-17</X>
+					<Y>0</Y>
 				</Position>
 			</Spawn>
 			<Spawn>
 				<Position>
-					<X>35</X>
-					<Y>31</Y>
+					<X>-12</X>
+					<Y>0</Y>
 				</Position>
 			</Spawn>
 			<Spawn>
 				<Position>
-					<X>-35</X>
-					<Y>-31</Y>
+					<X>-7</X>
+					<Y>0</Y>
 				</Position>
 			</Spawn>
 			<Spawn>
 				<Position>
-					<X>35</X>
-					<Y>-31</Y>
+					<X>-2</X>
+					<Y>0</Y>
 				</Position>
 			</Spawn>
 		</PlayerSpawns>
