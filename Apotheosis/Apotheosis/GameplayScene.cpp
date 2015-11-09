@@ -8,14 +8,15 @@ GameplayScene::~GameplayScene()
 {
 	sort(m_platforms.begin(), m_platforms.end(), [&](Platform& _rPlatform1, Platform& _rPlatform2){return !_rPlatform1.isActive() && _rPlatform2.isActive(); });
 	//Save platforms to XML
-	if (m_bSaveLevelOnExit)
-		LevelLoader::toXML("GameplayScene.xml", { m_platforms, m_players });
+	//if (m_bSaveLevelOnExit)
+		//LevelLoader::toXML("GameplayScene.xml", { m_platforms, m_players });
 }
 
 
 
 void GameplayScene::init() 
 {
+	m_fSleep = 0.0f;
 
 	for (UINT i = 0; i < m_platforms.size(); ++i)
 		m_platforms[i].init(b2Vec2(-25.0f + 10.0f*i, -2.0f), 3.0f, 3.0f);
@@ -66,6 +67,12 @@ void GameplayScene::changePauseState(bool _bPaused)
 
 void GameplayScene::update(float _fDeltaTime) 
 {
+	if (m_fSleep > 0.0f)
+	{
+		m_fSleep -= _fDeltaTime;
+		return;
+	}
+
 	if (m_bPaused)
 	{
 		for (auto& rButton : m_buttons)
@@ -84,7 +91,7 @@ void GameplayScene::update(float _fDeltaTime)
 		{
 			m_buttons[m_iCurrentButtonIndex].click();
 		}
-		else if (InputHandler::getInstance()->handleGeneralButton(0, GB_B, _fDeltaTime)) //Unpause
+		else if (InputHandler::getInstance()->handleGeneralButton(0, GB_START, _fDeltaTime)) //Unpause
 		{
 			changePauseState(false);
 		}
@@ -92,7 +99,7 @@ void GameplayScene::update(float _fDeltaTime)
 	else
 	{
 		//Pause
-		if (InputHandler::getInstance()->handleGeneralButton(0, GB_B, _fDeltaTime))
+		if (InputHandler::getInstance()->handleGeneralButton(0, GB_START, _fDeltaTime))
 		{
 			changePauseState(true);
 			m_iCurrentButtonIndex = 1;
@@ -249,6 +256,7 @@ bool GameplayScene::sceneEnding(E_SCENE& _reNextScene)
 	{
 		_reNextScene = m_nextSceneSelected;
 		m_bSceneEnding = false; //Reset
+		m_fSleep = 0.0f;
 		return true;
 	}
 	return false;
@@ -260,6 +268,9 @@ void GameplayScene::playerChannelSuccessCallback()
 	{
 		rPlayer.respawn();
 	}
+	//New round has started, play sound for start of new round and pause input for 2 seconds
+	AudioManager::PlayGong();
+	m_fSleep = 2.0f;
 }
 
 

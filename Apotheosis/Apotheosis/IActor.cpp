@@ -98,4 +98,5 @@ void IActor::setPosition(float _fX, float _fY)
 	m_transform.translation.x = _fX;
 	m_transform.translation.y = _fY;
 	m_renderTasks[m_iCurrTaskIndex].transformMtx = *m_transform.matrix();
+	m_rigidBodies.back()->SetAwake(true);
 }

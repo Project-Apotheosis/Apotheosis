@@ -38,6 +38,8 @@ private: //Internals
 	void navigateMenu(bool _bUp);
 	void changePauseState(bool _bPaused);
 
+	float m_fSleep;
+
 public: //Interface
 
 	void init() override;
