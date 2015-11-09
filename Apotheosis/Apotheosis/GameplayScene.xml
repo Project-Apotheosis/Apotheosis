@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <Profile Format="1">
 	<Level>
+<<<<<<< HEAD
 		<Platforms>
 			<Platform>
 				<Position>
@@ -153,6 +154,9 @@
 				</Position>
 			</Platform>
 		</Platforms>
+=======
+		<Platforms />
+>>>>>>> ae3933f78cba40873e4c9998ccd6bada110c46f2
 		<PlayerSpawns>
 			<Spawn>
 				<Position>

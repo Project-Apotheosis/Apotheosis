@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 4/11/2015 11:12:34 a.m..
      1>Project "H:\Project-Apotheosis\Apotheosis\Apotheosis\Apotheosis.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
@@ -29,6 +30,16 @@
          Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\Project-Apotheosis\Apotheosis\Debug\Apotheosis.exe" /INCREMENTAL /NOLOGO /LIBPATH:"H:\Project-Apotheosis\Apotheosis\\DirectX\Lib\x86" /LIBPATH:"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64" /LIBPATH:"H:\Project-Apotheosis\Apotheosis\\Box2D\Build\vs2013\bin\x32\Debug" /LIBPATH:"H:\Project-Apotheosis\Apotheosis\\PugiXML\PugiXML Build\Debug" d3d10.lib d3dx10.lib DxErr.lib dinput8.lib dxguid.lib dxgi.lib Box2D.lib pugixml.lib "../FMOD api/lib/fmodex_vc.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:\Project-Apotheosis\Apotheosis\Debug\Apotheosis.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\Project-Apotheosis\Apotheosis\Debug\Apotheosis.lib" /MACHINE:X86 Debug\AppWin32.obj
+=======
+﻿Build started 5/11/2015 7:55:28 p.m..
+     1>Project "F:\Sem2\Apotheosis\Apotheosis\Apotheosis\Apotheosis.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IF:\Sem2\Apotheosis\Apotheosis\\DirectX\Include /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include Library Directories: ..\FMOD api\lib" /I"F:\Sem2\Apotheosis\Apotheosis\\Visual Leak Detector\lib\Win64" /I"F:\Sem2\Apotheosis\Apotheosis\\Visual Leak Detector\lib\Win32" /I"F:\Sem2\Apotheosis\Apotheosis\\Visual Leak Detector\lib" /I"D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\lib" /I"D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\lib" /I"C:\Program Files (x86)\Windows Kits\8.1\lib\winv6.3\um\x86" /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86" /IF:\Sem2\Apotheosis\Apotheosis\\Box2D\Box2D /I"F:\Sem2\Apotheosis\Apotheosis\\PugiXML\pugixml-1.6\src" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameRoot.cpp
+         GameRoot.cpp
+     1>f:\sem2\apotheosis\apotheosis\apotheosis\gameroot.cpp(69): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Sem2\Apotheosis\Apotheosis\Debug\Apotheosis.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\Sem2\Apotheosis\Apotheosis\\DirectX\Lib\x86 /LIBPATH:"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64" /LIBPATH:F:\Sem2\Apotheosis\Apotheosis\\Box2D\Build\vs2013\bin\x32\Debug /LIBPATH:"F:\Sem2\Apotheosis\Apotheosis\\PugiXML\PugiXML Build\Debug" /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" d3d10.lib d3dx10.lib DxErr.lib dinput8.lib dxguid.lib dxgi.lib Box2D.lib pugixml.lib "../FMOD api/lib/fmodex_vc.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\Sem2\Apotheosis\Apotheosis\Debug\Apotheosis.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Sem2\Apotheosis\Apotheosis\Debug\Apotheosis.lib" /MACHINE:X86 Debug\AppWin32.obj
+>>>>>>> ae3933f78cba40873e4c9998ccd6bada110c46f2
          Debug\AudioManager.obj
          Debug\Camera.obj
          Debug\D3DInputmanager.obj
@@ -46,9 +57,18 @@
          Debug\Transform.obj
          Debug\Util.obj
          Debug\winmain.obj
+<<<<<<< HEAD
          Apotheosis.vcxproj -> H:\Project-Apotheosis\Apotheosis\Debug\Apotheosis.exe
      1>Done Building Project "H:\Project-Apotheosis\Apotheosis\Apotheosis\Apotheosis.vcxproj" (Build target(s)).
 
 Build succeeded.
 
 Time Elapsed 00:00:22.97
+=======
+         Apotheosis.vcxproj -> F:\Sem2\Apotheosis\Apotheosis\Debug\Apotheosis.exe
+     1>Done Building Project "F:\Sem2\Apotheosis\Apotheosis\Apotheosis\Apotheosis.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.74
+>>>>>>> ae3933f78cba40873e4c9998ccd6bada110c46f2

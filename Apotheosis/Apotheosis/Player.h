@@ -13,7 +13,7 @@ class Player : public IActor
 		void init(UINT _iPlayerID);
 
 		void updatePoints(UINT _iPlayerSoulCount);
-		void updateSkullLevel(UINT _iPlayerSkullLevel);
+		bool updateSkullLevel(UINT _iPlayerSkullLevel);
 
 		void update(float _fDeltaTime);
 
@@ -33,6 +33,8 @@ public: //Construction
 	~Player();
 
 private: //Data
+
+	bool m_bWinner{};
 
 	Score m_playerScore;
 
@@ -66,6 +68,9 @@ private: //Data
 	UINT m_iPlayerSkullLevel{};
 
 public: //Interface
+
+	bool isWinner() const { return m_bWinner; }
+	void resetScore();
 
 	UINT getPlayerID() const { return m_iPlayerID; }
 	UINT getSoulCount() const { return m_iSoulCount; }

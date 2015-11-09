@@ -92,14 +92,16 @@
 	*/
 	bool IRoot::executeOneFrame(bool _bGameIsPaused)
 	{
+		bool bGameIsRunning = true;
 
 		m_timer.tick();
 
 		countFPS();
 
 
+
 		if (!_bGameIsPaused)
-			update((float)m_timer.getDeltaTime());	//This is pure virtual overridden by derived game root
+			bGameIsRunning &= update((float)m_timer.getDeltaTime());	//This is pure virtual overridden by derived game root
 
 		//Render the scene
 
@@ -107,7 +109,7 @@
 		m_pPhysicsSystem->update((float)m_timer.getDeltaTime());
 		m_pAudioManager->Update();
 
-		return true;
+		return bGameIsRunning;
 
 	}
 

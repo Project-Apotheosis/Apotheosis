@@ -66,7 +66,7 @@ using namespace std;
 #pragma warning(disable:4351) //Default initialization of char data[256]
 
 
-enum E_SCENE : UINT { S_MAINMENU, S_GAMEPLAY, S_MAX };
+enum E_SCENE : UINT { S_MAINMENU, S_GAMEPLAY, S_EXIT, S_MAX };
 
 
 
