@@ -6,6 +6,8 @@ MainMenuScene::~MainMenuScene(){}
 
 void MainMenuScene::init() 
 {
+	m_hackTitleButton.init(b2Vec2(0, 25), 35, 10);
+	m_hackTitleButton.addRenderable("Apoth_title_", ".png", 1);
 
 	m_buttons[0].init(b2Vec2(0, 5), 5, 2);
 	m_buttons[0].addRenderable("StartGame_", ".png", 2);
@@ -71,6 +73,7 @@ void MainMenuScene::navigateMenu(bool _bUp)
 void MainMenuScene::setActive(bool _bActive) 
 {
 	for_each(m_buttons.begin(), m_buttons.end(), [&](MainMenuButton& _rButton){ _rButton.setActive(_bActive); });
+	m_hackTitleButton.setActive(_bActive);
 	//for (auto& rButton : m_buttons)
 	//	rButton.setActive(_bActive);
 }

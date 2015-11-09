@@ -1,35 +1,26 @@
-﻿Build started 10/11/2015 12:23:13 p.m..
-     1>Project "H:\Project-Apotheosis\Apotheosis\Apotheosis\Apotheosis.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"H:\Project-Apotheosis\Apotheosis\\DirectX\Include" /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include Library Directories: ..\FMOD api\lib" /I"H:\Project-Apotheosis\Apotheosis\\Visual Leak Detector\lib\Win64" /I"H:\Project-Apotheosis\Apotheosis\\Visual Leak Detector\lib\Win32" /I"H:\Project-Apotheosis\Apotheosis\\Visual Leak Detector\lib" /I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\lib" /I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\lib" /I"C:\Program Files (x86)\Windows Kits\8.1\lib\winv6.3\um\x86" /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86" /I"H:\Project-Apotheosis\Apotheosis\\Box2D\Box2D" /I"H:\Project-Apotheosis\Apotheosis\\PugiXML\pugixml-1.6\src" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameRoot.cpp GameplayScene.cpp winmain.cpp
-         GameplayScene.cpp
-     1>h:\project-apotheosis\apotheosis\apotheosis\gameplayscene.cpp(161): warning C4018: '>' : signed/unsigned mismatch
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         winmain.cpp
-         GameRoot.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\Project-Apotheosis\Apotheosis\Debug\Apotheosis.exe" /INCREMENTAL /NOLOGO /LIBPATH:"H:\Project-Apotheosis\Apotheosis\\DirectX\Lib\x86" /LIBPATH:"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64" /LIBPATH:"H:\Project-Apotheosis\Apotheosis\\Box2D\Build\vs2013\bin\x32\Debug" /LIBPATH:"H:\Project-Apotheosis\Apotheosis\\PugiXML\PugiXML Build\Debug" /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" d3d10.lib d3dx10.lib DxErr.lib dinput8.lib dxguid.lib dxgi.lib Box2D.lib pugixml.lib "../FMOD api/lib/fmodex_vc.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:\Project-Apotheosis\Apotheosis\Debug\Apotheosis.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\Project-Apotheosis\Apotheosis\Debug\Apotheosis.lib" /MACHINE:X86 Debug\AppWin32.obj
-         Debug\AudioManager.obj
-         Debug\Camera.obj
-         Debug\D3DInputmanager.obj
-         Debug\DX10Renderer.obj
-         Debug\GameplayScene.obj
-         Debug\IActor.obj
-         Debug\MainMenuScene.obj
-         Debug\Player.obj
-         Debug\XInputManager.obj
-         Debug\GameRoot.obj
-         Debug\InputHandler.obj
-         Debug\IRoot.obj
-         Debug\PhysicsSystem.obj
-         Debug\Timer.obj
-         Debug\Transform.obj
-         Debug\Util.obj
-         Debug\winmain.obj
-         Apotheosis.vcxproj -> H:\Project-Apotheosis\Apotheosis\Debug\Apotheosis.exe
-     1>Done Building Project "H:\Project-Apotheosis\Apotheosis\Apotheosis\Apotheosis.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:04.63
+﻿  AppWin32.cpp
+  Generating Code...
+  Compiling...
+  winmain.cpp
+  XInputManager.cpp
+  Util.cpp
+  Transform.cpp
+  Player.cpp
+e:\sem2\apotheosis\apotheosis\apotheosis\player.cpp(327): warning C4244: 'argument' : conversion from 'int' to 'float32', possible loss of data
+  PhysicsSystem.cpp
+  MainMenuScene.cpp
+  InputHandler.cpp
+  IRoot.cpp
+  IActor.cpp
+e:\sem2\apotheosis\apotheosis\apotheosis\iactor.cpp(18): warning C4305: 'argument' : truncation from 'double' to 'float'
+  GameplayScene.cpp
+e:\sem2\apotheosis\apotheosis\apotheosis\gameplayscene.cpp(164): warning C4018: '>' : signed/unsigned mismatch
+  GameRoot.cpp
+e:\sem2\apotheosis\apotheosis\apotheosis\gameroot.cpp(69): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+  DX10Renderer.cpp
+e:\sem2\apotheosis\apotheosis\apotheosis\dx10renderer.cpp(539): warning C4244: 'argument' : conversion from 'const UINT' to 'float', possible loss of data
+  D3DInputmanager.cpp
+  Camera.cpp
+e:\sem2\apotheosis\apotheosis\apotheosis\camera.cpp(98): warning C4244: 'argument' : conversion from 'int' to 'FLOAT', possible loss of data
+  Generating Code...
+  Apotheosis.vcxproj -> E:\Sem2\Apotheosis\Apotheosis\Debug\Apotheosis.exe

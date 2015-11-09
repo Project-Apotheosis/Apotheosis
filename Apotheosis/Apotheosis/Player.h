@@ -67,7 +67,11 @@ private: //Data
 	bool m_bChannelStarted{};
 	UINT m_iPlayerSkullLevel{};
 
+	bool m_bAllowInput{ true };
+
 public: //Interface
+
+	void setAllowInput(bool _bAllow) { m_bAllowInput = _bAllow; }
 
 	bool isWinner() const { return m_bWinner; }
 	void resetScore();

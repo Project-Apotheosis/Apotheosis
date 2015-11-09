@@ -70,7 +70,10 @@ void GameplayScene::update(float _fDeltaTime)
 	if (m_fSleep > 0.0f)
 	{
 		m_fSleep -= _fDeltaTime;
-		return;
+	}
+	for (auto& rPlayer : m_players)
+	{
+		rPlayer.setAllowInput(m_fSleep <= 0.0f);
 	}
 
 	if (m_bPaused)

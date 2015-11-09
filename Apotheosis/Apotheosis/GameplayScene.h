@@ -27,6 +27,7 @@ private: //Data
 	UINT m_iInactivePlatformCount{}; //Set from loading xml
 
 	bool m_bPaused;
+	
 	UINT m_iCurrentButtonIndex{};
 	array<MainMenuButton, 2> m_buttons;
 
@@ -39,7 +40,6 @@ private: //Internals
 	void changePauseState(bool _bPaused);
 
 	float m_fSleep;
-
 public: //Interface
 
 	void init() override;

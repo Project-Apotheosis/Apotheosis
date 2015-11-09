@@ -23,7 +23,7 @@ private: //Data
 	array<MainMenuButton, 2> m_buttons;
 	UINT m_iCurrentButtonIndex{};
 
-
+	MainMenuButton m_hackTitleButton;
 
 public: //Interface
 

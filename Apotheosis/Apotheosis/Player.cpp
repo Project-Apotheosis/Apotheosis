@@ -175,7 +175,11 @@ void Player::update(float _fDeltaTime)
 		m_fChannelTick = 0.0f;
 	}
 
-	handleInput(_fDeltaTime);
+	if (m_bAllowInput)
+	{
+		handleInput(_fDeltaTime);
+	}
+	
 
 
 
